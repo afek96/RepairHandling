@@ -45,6 +45,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.dgvRequests = new System.Windows.Forms.DataGridView();
             this.dgvActivities = new System.Windows.Forms.DataGridView();
+            this.requestControl = new RepairHandlingSystem.UI.RequestControl();
             this.gbRequest.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbActivities.SuspendLayout();
@@ -108,7 +109,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 12F));
             this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.comboBox2, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnRequestAdd, 5, 1);
@@ -190,14 +191,14 @@
             // comboBox4
             // 
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(47, 13);
+            this.comboBox4.Location = new System.Drawing.Point(48, 13);
             this.comboBox4.Name = "comboBox4";
             this.comboBox4.Size = new System.Drawing.Size(18, 21);
             this.comboBox4.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(81, 13);
+            this.button1.Location = new System.Drawing.Point(83, 13);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(18, 28);
             this.button1.TabIndex = 2;
@@ -206,7 +207,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(47, 57);
+            this.button2.Location = new System.Drawing.Point(48, 57);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(18, 23);
             this.button2.TabIndex = 1;
@@ -238,10 +239,18 @@
             this.dgvActivities.Size = new System.Drawing.Size(240, 150);
             this.dgvActivities.TabIndex = 7;
             // 
+            // requestControl
+            // 
+            this.requestControl.Location = new System.Drawing.Point(64, 59);
+            this.requestControl.Name = "requestControl";
+            this.requestControl.Size = new System.Drawing.Size(616, 207);
+            this.requestControl.TabIndex = 8;
+            // 
             // ManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.requestControl);
             this.Controls.Add(this.dgvActivities);
             this.Controls.Add(this.dgvRequests);
             this.Controls.Add(this.gbActivities);
@@ -278,5 +287,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgvRequests;
         private System.Windows.Forms.DataGridView dgvActivities;
+        private RequestControl requestControl;
     }
 }

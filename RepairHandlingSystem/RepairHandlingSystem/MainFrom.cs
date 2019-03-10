@@ -17,6 +17,7 @@ namespace RepairHandlingSystem
     public partial class MainFrom : Form
     {
         private PersonelManager _personelManager = null;
+        private RequestManager _requestManager = null;
 
         public MainFrom()
         {
@@ -24,9 +25,18 @@ namespace RepairHandlingSystem
 
             _personelManager = new PersonelManager();
 
+            _requestManager = new RequestManager();
+
             InitLoginControl(_personelManager);
 
             InitAdminControl(_personelManager);
+
+            InitManagerControl(_requestManager);
+        }
+
+        private void InitManagerControl(RequestManager requestManager)
+        {
+            managerControl.Initialize(requestManager);
         }
 
         private void InitAdminControl(PersonelManager personelManager)

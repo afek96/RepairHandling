@@ -23,6 +23,17 @@ namespace RepairHandlingSystem.DAL
         }
     }
 
+    partial class Client
+    {
+        public string DisplayName
+        {
+            get
+            {
+                return string.IsNullOrEmpty(Name) ? $"{FirstName} {LastName}" : Name;
+            }
+        }
+    }
+
     partial class Role
     {
         public enum RoleEnum
@@ -30,6 +41,17 @@ namespace RepairHandlingSystem.DAL
             ADM,
             MAN,
             WOR
+        }
+    }
+
+    partial class Object
+    {
+        public string DisplayName
+        {
+            get
+            {
+                return $"{Client.DisplayName} - {Type}";
+            }
         }
     }
 }

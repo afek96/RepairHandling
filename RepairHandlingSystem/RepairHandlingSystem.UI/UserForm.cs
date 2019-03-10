@@ -216,7 +216,10 @@ namespace RepairHandlingSystem.UI
             if (!(sender as Control).Visible)
                 return;
 
-            btnAccept.Enabled = AreAllVisibleTextBoxesFilled() && (!_forPersonel || (txbPassword.Text == txbPasswordConfirm.Text && cbxRole.SelectedIndex != -1));
+            if (_forPersonel)
+                btnAccept.Enabled = AreAllVisibleTextBoxesFilled() && txbPassword.Text == txbPasswordConfirm.Text && cbxRole.SelectedIndex != -1;
+            else
+                btnAccept.Enabled = ((!string.IsNullOrEmpty(txbFirstName.Text) && !string.IsNullOrEmpty(txbLastName.Text)) || !string.IsNullOrEmpty(txbName.Text)) && !string.IsNullOrEmpty(txbPhoneNumber.Text);
         }
 
         #endregion

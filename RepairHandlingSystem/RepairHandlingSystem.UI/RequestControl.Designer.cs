@@ -150,6 +150,8 @@
             this.cbxObjectType.Name = "cbxObjectType";
             this.cbxObjectType.Size = new System.Drawing.Size(195, 33);
             this.cbxObjectType.TabIndex = 18;
+            this.cbxObjectType.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.cbxObjectType.Click += new System.EventHandler(this.cbxObjectType_Click);
             // 
             // cbxClient
             // 
@@ -160,6 +162,8 @@
             this.cbxClient.Name = "cbxClient";
             this.cbxClient.Size = new System.Drawing.Size(195, 33);
             this.cbxClient.TabIndex = 19;
+            this.cbxClient.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.cbxClient.Click += new System.EventHandler(this.cbxClient_Click);
             // 
             // cbxObject
             // 
@@ -170,10 +174,12 @@
             this.cbxObject.Name = "cbxObject";
             this.cbxObject.Size = new System.Drawing.Size(195, 33);
             this.cbxObject.TabIndex = 20;
+            this.cbxObject.Click += new System.EventHandler(this.cbxObject_Click);
             // 
             // btnAddObject
             // 
             this.btnAddObject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddObject.Enabled = false;
             this.btnAddObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddObject.Location = new System.Drawing.Point(378, 13);
             this.btnAddObject.Name = "btnAddObject";
@@ -181,6 +187,7 @@
             this.btnAddObject.TabIndex = 21;
             this.btnAddObject.Text = "Add Object";
             this.btnAddObject.UseVisualStyleBackColor = true;
+            this.btnAddObject.Click += new System.EventHandler(this.btnAddObject_Click);
             // 
             // btnAddClient
             // 
@@ -192,6 +199,7 @@
             this.btnAddClient.TabIndex = 22;
             this.btnAddClient.Text = "Add Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
             // 
             // btnAddObjectType
             // 
@@ -203,6 +211,7 @@
             this.btnAddObjectType.TabIndex = 23;
             this.btnAddObjectType.Text = "Add Object Type";
             this.btnAddObjectType.UseVisualStyleBackColor = true;
+            this.btnAddObjectType.Click += new System.EventHandler(this.btnAddObjectType_Click);
             // 
             // btnAddRequest
             // 
@@ -222,6 +231,7 @@
             this.Controls.Add(this.tlpMain);
             this.Name = "RequestControl";
             this.Size = new System.Drawing.Size(616, 207);
+            this.FontChanged += new System.EventHandler(this.RequestControl_FontChanged);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             this.ResumeLayout(false);

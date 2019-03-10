@@ -32,8 +32,8 @@ namespace RepairHandlingSystem.Managers
             if (searchCriteria == null)
                 return dc.Personels;
 
-            return dc.Personels.Where(
-                p => (string.IsNullOrEmpty(searchCriteria.FirstName) || p.FirstName.StartsWith(searchCriteria.FirstName))
+            return dc.Personels.Where(p => 
+                (string.IsNullOrEmpty(searchCriteria.FirstName) || p.FirstName.StartsWith(searchCriteria.FirstName))
                 && (string.IsNullOrEmpty(searchCriteria.LastName) || p.LastName.StartsWith(searchCriteria.LastName))
                 && (string.IsNullOrEmpty(searchCriteria.UserName) || p.UserName.StartsWith(searchCriteria.UserName))
                 && (string.IsNullOrEmpty(searchCriteria.Role) || p.Role.StartsWith(searchCriteria.Role))
