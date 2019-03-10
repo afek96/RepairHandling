@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="RepairHandling" Class="DataClassesRepairDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=ADAM-PC\SQLEXPRESS;Initial Catalog=RepairHandling;Integrated Security=True" SettingsObjectName="RepairHandlingSystem.DAL.Properties.Settings" SettingsPropertyName="RepairHandlingConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Activity" Member="Activities">
+    <Type Name="Activity">
+      <Column Name="IdActivity" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SequenceNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Result" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="IdRequest" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdPersonel" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ActivityType_Activity" Member="ActivityType" ThisKey="Type" OtherKey="ActType" Type="ActivityType" IsForeignKey="true" />
+      <Association Name="Request_Activity" Member="Request" ThisKey="IdRequest" OtherKey="IdRequest" Type="Request" IsForeignKey="true" />
+      <Association Name="Personel_Activity" Member="Personel" ThisKey="IdPersonel" OtherKey="IdPersonel" Type="Personel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ActivityType" Member="ActivityTypes">
+    <Type Name="ActivityType">
+      <Column Name="ActivityType" Member="ActType" Type="System.String" DbType="NVarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(128) NOT NULL" CanBeNull="false" />
+      <Association Name="ActivityType_Activity" Member="Activities" ThisKey="ActType" OtherKey="Type" Type="Activity" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="IdClient" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="IdAddress" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Client_Object" Member="Objects" ThisKey="IdClient" OtherKey="IdClient" Type="Object" />
+      <Association Name="Address_Client" Member="Address" ThisKey="IdAddress" OtherKey="IdAddress" Type="Address" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Object" Member="Objects">
+    <Type Name="Object">
+      <Column Name="IdObject" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IdClient" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256)" CanBeNull="true" />
+      <Association Name="Object_Request" Member="Requests" ThisKey="IdObject" OtherKey="IdObject" Type="Request" />
+      <Association Name="Client_Object" Member="Client" ThisKey="IdClient" OtherKey="IdClient" Type="Client" IsForeignKey="true" />
+      <Association Name="ObjectType_Object" Member="ObjectType" ThisKey="Type" OtherKey="ObjType" Type="ObjectType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ObjectType" Member="ObjectTypes">
+    <Type Name="ObjectType">
+      <Column Name="ObjectType" Member="ObjType" Type="System.String" DbType="NVarChar(8) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(256) NOT NULL" CanBeNull="false" />
+      <Association Name="ObjectType_Object" Member="Objects" ThisKey="ObjType" OtherKey="Type" Type="Object" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request" Member="Requests">
+    <Type Name="Request">
+      <Column Name="IdRequest" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(1024) NOT NULL" CanBeNull="false" />
+      <Column Name="Result" Type="System.String" DbType="NVarChar(1024)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CreateDate" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="IdObject" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IdPersonel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Request_Activity" Member="Activities" ThisKey="IdRequest" OtherKey="IdRequest" Type="Activity" />
+      <Association Name="Object_Request" Member="Object" ThisKey="IdObject" OtherKey="IdObject" Type="Object" IsForeignKey="true" />
+      <Association Name="Personel_Request" Member="Personel" ThisKey="IdPersonel" OtherKey="IdPersonel" Type="Personel" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="RoleType" Type="System.String" DbType="NVarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_Personel" Member="Personels" ThisKey="RoleType" OtherKey="Role" Type="Personel" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="IdAddress" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Street" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HouseNumber" Type="System.String" DbType="NVarChar(8) NOT NULL" CanBeNull="false" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(6) NOT NULL" CanBeNull="false" />
+      <Association Name="Address_Client" Member="Clients" ThisKey="IdAddress" OtherKey="IdAddress" Type="Client" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personel" Member="Personels">
+    <Type Name="Personel">
+      <Column Name="IdPersonel" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(64) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Association Name="Personel_Activity" Member="Activities" ThisKey="IdPersonel" OtherKey="IdPersonel" Type="Activity" />
+      <Association Name="Personel_Request" Member="Requests" ThisKey="IdPersonel" OtherKey="IdPersonel" Type="Request" />
+      <Association Name="Role_Personel" Member="Role1" ThisKey="Role" OtherKey="RoleType" Type="Role" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

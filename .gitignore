@@ -3,3 +3,14 @@
 ################################################################################
 
 /RepairHandlingSystem/.vs/RepairHandlingSystem/v15
+/RepairHandlingSystem/RepairHandlingSystem/bin/Debug
+/RepairHandlingSystem/RepairHandlingSystem/obj/Debug
+/RepairHandlingSystem/RepairHandlingSystem.Common/bin/Debug
+/RepairHandlingSystem/RepairHandlingSystem.Common/obj/Debug
+/RepairHandlingSystem/RepairHandlingSystem.DAL/bin/Debug
+/RepairHandlingSystem/RepairHandlingSystem.DAL/obj/Debug
+/RepairHandlingSystem/RepairHandlingSystem.Managers/bin/Debug
+/RepairHandlingSystem/RepairHandlingSystem.Managers/obj/Debug
+/RepairHandlingSystem/RepairHandlingSystem.UI/bin/Debug
+/RepairHandlingSystem/RepairHandlingSystem.UI/obj/Debug
+/.vs
