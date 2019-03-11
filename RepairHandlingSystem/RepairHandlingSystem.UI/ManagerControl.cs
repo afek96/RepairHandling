@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepairHandlingSystem.Managers;
+using RepairHandlingSystem.DAL;
 
 namespace RepairHandlingSystem.UI
 {
@@ -24,6 +25,11 @@ namespace RepairHandlingSystem.UI
         {
             _requestManager = requestManager;
             requestControl.Initialize(requestManager);
+        }
+
+        public void SetCurrentUser(Personel currentUser)
+        {
+            requestControl.CurrentUser = currentUser;
         }
     }
 }

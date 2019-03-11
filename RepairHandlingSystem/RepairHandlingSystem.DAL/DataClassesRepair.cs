@@ -54,4 +54,16 @@ namespace RepairHandlingSystem.DAL
             }
         }
     }
+    public enum StatusEnum
+    {
+        OPN,
+        PRO,
+        CAN,
+        FIN
+    }
+
+    partial class Request
+    {
+        
+    }
 }

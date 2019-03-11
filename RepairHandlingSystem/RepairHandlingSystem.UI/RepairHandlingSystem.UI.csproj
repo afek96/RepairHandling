@@ -92,6 +92,12 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="WorkerControl.Designer.cs">
+      <DependentUpon>WorkerControl.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddressForm.resx">

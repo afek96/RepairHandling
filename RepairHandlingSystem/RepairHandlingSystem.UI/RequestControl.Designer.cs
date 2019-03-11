@@ -137,9 +137,11 @@
             this.txbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txbDescription.Location = new System.Drawing.Point(167, 160);
+            this.txbDescription.MaxLength = 1024;
             this.txbDescription.Name = "txbDescription";
             this.txbDescription.Size = new System.Drawing.Size(195, 31);
             this.txbDescription.TabIndex = 17;
+            this.txbDescription.TextChanged += new System.EventHandler(this.OnUserValueInputChanged);
             // 
             // cbxObjectType
             // 
@@ -150,7 +152,7 @@
             this.cbxObjectType.Name = "cbxObjectType";
             this.cbxObjectType.Size = new System.Drawing.Size(195, 33);
             this.cbxObjectType.TabIndex = 18;
-            this.cbxObjectType.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.cbxObjectType.SelectedIndexChanged += new System.EventHandler(this.OnUserValueInputChanged);
             this.cbxObjectType.Click += new System.EventHandler(this.cbxObjectType_Click);
             // 
             // cbxClient
@@ -162,7 +164,7 @@
             this.cbxClient.Name = "cbxClient";
             this.cbxClient.Size = new System.Drawing.Size(195, 33);
             this.cbxClient.TabIndex = 19;
-            this.cbxClient.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+            this.cbxClient.SelectedIndexChanged += new System.EventHandler(this.OnUserValueInputChanged);
             this.cbxClient.Click += new System.EventHandler(this.cbxClient_Click);
             // 
             // cbxObject
@@ -174,6 +176,7 @@
             this.cbxObject.Name = "cbxObject";
             this.cbxObject.Size = new System.Drawing.Size(195, 33);
             this.cbxObject.TabIndex = 20;
+            this.cbxObject.SelectedIndexChanged += new System.EventHandler(this.OnUserValueInputChanged);
             this.cbxObject.Click += new System.EventHandler(this.cbxObject_Click);
             // 
             // btnAddObject
@@ -216,6 +219,7 @@
             // btnAddRequest
             // 
             this.btnAddRequest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddRequest.Enabled = false;
             this.btnAddRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btnAddRequest.Location = new System.Drawing.Point(378, 160);
             this.btnAddRequest.Name = "btnAddRequest";
@@ -223,6 +227,7 @@
             this.btnAddRequest.TabIndex = 24;
             this.btnAddRequest.Text = "Add Request";
             this.btnAddRequest.UseVisualStyleBackColor = true;
+            this.btnAddRequest.Click += new System.EventHandler(this.btnAddRequest_Click);
             // 
             // RequestControl
             // 

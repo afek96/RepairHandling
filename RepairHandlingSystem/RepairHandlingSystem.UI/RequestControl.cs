@@ -16,9 +16,17 @@ namespace RepairHandlingSystem.UI
     {
         private RequestManager _requestManager;
 
+        public Personel CurrentUser { get; set; }
+
         public RequestControl()
         {
             InitializeComponent();
+        }
+
+        public RequestControl(Personel currentUser)
+        {
+            InitializeComponent();
+            CurrentUser = currentUser;
         }
 
         public void Initialize(RequestManager requestManager)
@@ -80,11 +88,25 @@ namespace RepairHandlingSystem.UI
             _requestManager.AddObjectType(objectTypeForm.ObjectType);
         }
 
-        private void SelectedIndexChanged(object sender, EventArgs e)
+        private void OnUserValueInputChanged(object sender, EventArgs e)
         {
-            btnAddObject.Enabled = cbxClient.SelectedIndex != -1 && cbxObjectType.SelectedIndex != -1;
+            btnAddObject.Enabled = cbxClient.SelectedIndex != -1 && cbxObjectType.SelectedIndex != -1 && txbDescription.Text.Length < 256;
+
+            btnAddRequest.Enabled = cbxObject.SelectedIndex != -1 && !string.IsNullOrEmpty(txbDescription.Text);
         }
 
-        
+        private void btnAddRequest_Click(object sender, EventArgs e)
+        {
+            Request request = new Request()
+            {
+                CreateDate = DateTime.Now,
+                Description = txbDescription.Text,
+                IdPersonel = CurrentUser.IdPersonel,
+                IdObject = ((DAL.Object)cbxObject.SelectedItem).IdObject,
+                Status = StatusEnum.OPN.ToString()
+            };
+
+            _requestManager.AddRequest(request);
+        }
     }
 }

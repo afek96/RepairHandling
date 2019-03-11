@@ -60,7 +60,7 @@ namespace RepairHandlingSystem
         {
             var role = (RoleEnum)Enum.Parse(typeof(RoleEnum), user.Role);
 
-            tcMain.Visible = true;
+            
             switch (role)
             {
                 case RoleEnum.ADM:
@@ -76,6 +76,10 @@ namespace RepairHandlingSystem
                 default:
                     break;
             }
+            tcMain.Visible = true;
+
+            managerControl.SetCurrentUser(user);
+
         }
      
         private void btnExit_Click(object sender, EventArgs e)

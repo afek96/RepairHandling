@@ -37,10 +37,12 @@
             this.managerControl = new RepairHandlingSystem.UI.ManagerControl();
             this.tpWorker = new System.Windows.Forms.TabPage();
             this.btnExit = new System.Windows.Forms.Button();
+            this.workerControl1 = new RepairHandlingSystem.UI.WorkerControl();
             this.tlpMain.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpAdmin.SuspendLayout();
             this.tpManager.SuspendLayout();
+            this.tpWorker.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpMain
@@ -144,9 +146,10 @@
             // 
             // tpWorker
             // 
+            this.tpWorker.Controls.Add(this.workerControl1);
             this.tpWorker.Location = new System.Drawing.Point(4, 5);
             this.tpWorker.Name = "tpWorker";
-            this.tpWorker.Size = new System.Drawing.Size(896, 380);
+            this.tpWorker.Size = new System.Drawing.Size(896, 440);
             this.tpWorker.TabIndex = 2;
             this.tpWorker.Text = "Worker";
             this.tpWorker.UseVisualStyleBackColor = true;
@@ -164,6 +167,14 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // workerControl1
+            // 
+            this.workerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workerControl1.Location = new System.Drawing.Point(0, 0);
+            this.workerControl1.Name = "workerControl1";
+            this.workerControl1.Size = new System.Drawing.Size(896, 440);
+            this.workerControl1.TabIndex = 0;
+            // 
             // MainFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,6 +189,7 @@
             this.tcMain.ResumeLayout(false);
             this.tpAdmin.ResumeLayout(false);
             this.tpManager.ResumeLayout(false);
+            this.tpWorker.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -192,6 +204,7 @@
         private System.Windows.Forms.TabPage tpWorker;
         private System.Windows.Forms.Button btnExit;
         private UI.ManagerControl managerControl;
+        private UI.WorkerControl workerControl1;
     }
 }
 
