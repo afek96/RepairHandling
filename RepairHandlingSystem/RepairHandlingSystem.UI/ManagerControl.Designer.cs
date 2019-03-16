@@ -28,25 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvActivities = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpAddRequest = new System.Windows.Forms.TabPage();
             this.requestControl = new RepairHandlingSystem.UI.RequestControl();
             this.tpActivity = new System.Windows.Forms.TabPage();
             this.viewAndFilterRequestControl1 = new RepairHandlingSystem.UI.ViewAndFilterRequestControl();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActivities)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpAddRequest.SuspendLayout();
             this.tpActivity.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dgvActivities
-            // 
-            this.dgvActivities.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvActivities.Location = new System.Drawing.Point(582, 26);
-            this.dgvActivities.Name = "dgvActivities";
-            this.dgvActivities.Size = new System.Drawing.Size(240, 150);
-            this.dgvActivities.TabIndex = 7;
             // 
             // tabControl1
             // 
@@ -82,7 +72,6 @@
             // tpActivity
             // 
             this.tpActivity.Controls.Add(this.viewAndFilterRequestControl1);
-            this.tpActivity.Controls.Add(this.dgvActivities);
             this.tpActivity.Location = new System.Drawing.Point(4, 22);
             this.tpActivity.Name = "tpActivity";
             this.tpActivity.Padding = new System.Windows.Forms.Padding(3);
@@ -106,7 +95,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "ManagerControl";
             this.Size = new System.Drawing.Size(986, 538);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvActivities)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tpAddRequest.ResumeLayout(false);
             this.tpActivity.ResumeLayout(false);
@@ -115,7 +103,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvActivities;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpAddRequest;
         private System.Windows.Forms.TabPage tpActivity;

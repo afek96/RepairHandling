@@ -78,4 +78,15 @@ namespace RepairHandlingSystem.DAL
 
         public DateTime? EndDateTo { get; set; }
     }
+
+    partial class Activity
+    {
+        public DateTime? CreateDateFrom { get; set; }
+
+        public DateTime? CreateDateTo { get; set; }
+
+        public DateTime? EndDateFrom { get; set; }
+
+        public DateTime? EndDateTo { get; set; }
+    }
 }
