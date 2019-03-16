@@ -36,8 +36,8 @@
             this.tpManager = new System.Windows.Forms.TabPage();
             this.managerControl = new RepairHandlingSystem.UI.ManagerControl();
             this.tpWorker = new System.Windows.Forms.TabPage();
-            this.btnExit = new System.Windows.Forms.Button();
             this.workerControl1 = new RepairHandlingSystem.UI.WorkerControl();
+            this.btnExit = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpAdmin.SuspendLayout();
@@ -154,6 +154,14 @@
             this.tpWorker.Text = "Worker";
             this.tpWorker.UseVisualStyleBackColor = true;
             // 
+            // workerControl1
+            // 
+            this.workerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workerControl1.Location = new System.Drawing.Point(0, 0);
+            this.workerControl1.Name = "workerControl1";
+            this.workerControl1.Size = new System.Drawing.Size(896, 440);
+            this.workerControl1.TabIndex = 0;
+            // 
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.Color.Pink;
@@ -163,17 +171,9 @@
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(214, 59);
             this.btnExit.TabIndex = 6;
-            this.btnExit.Text = "Wyjście";
+            this.btnExit.Text = "Quit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // workerControl1
-            // 
-            this.workerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workerControl1.Location = new System.Drawing.Point(0, 0);
-            this.workerControl1.Name = "workerControl1";
-            this.workerControl1.Size = new System.Drawing.Size(896, 440);
-            this.workerControl1.TabIndex = 0;
             // 
             // MainFrom
             // 

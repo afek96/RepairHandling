@@ -130,6 +130,7 @@
             // cbxObjectType
             // 
             this.cbxObjectType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxObjectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxObjectType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxObjectType.FormattingEnabled = true;
             this.cbxObjectType.Location = new System.Drawing.Point(203, 64);
@@ -142,6 +143,7 @@
             // cbxClient
             // 
             this.cbxClient.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxClient.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxClient.FormattingEnabled = true;
             this.cbxClient.Location = new System.Drawing.Point(203, 13);

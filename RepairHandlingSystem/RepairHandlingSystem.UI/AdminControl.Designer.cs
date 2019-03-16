@@ -198,6 +198,7 @@
             // cbxRole
             // 
             this.cbxRole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxRole.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxRole.FormattingEnabled = true;
             this.cbxRole.Location = new System.Drawing.Point(3, 16);
             this.cbxRole.Name = "cbxRole";

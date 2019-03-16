@@ -30,6 +30,9 @@ namespace RepairHandlingSystem.UI
 
         private void cbxClient_Click(object sender, EventArgs e)
         {
+            if (cbxClient.DataSource != null)
+                return;
+
             var clients = _requestManager.GetClients(null);
             cbxClient.DataSource = clients;
             cbxClient.DisplayMember = "DisplayName";
@@ -37,6 +40,9 @@ namespace RepairHandlingSystem.UI
 
         private void cbxObjectType_Click(object sender, EventArgs e)
         {
+            if (cbxObjectType.DataSource != null)
+                return;
+
             var objectTypes = _requestManager.GetObjectTypes(null);
             cbxObjectType.DataSource = objectTypes;
             cbxObjectType.DisplayMember = "ObjType";

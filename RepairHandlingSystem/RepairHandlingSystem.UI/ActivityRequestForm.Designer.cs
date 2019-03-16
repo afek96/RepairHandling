@@ -223,6 +223,7 @@
             this.txbResult.Size = new System.Drawing.Size(213, 31);
             this.txbResult.TabIndex = 9;
             this.txbResult.Tag = "";
+            this.txbResult.TextChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
             // tlpMain
             // 
@@ -289,12 +290,14 @@
             // cbxObject
             // 
             this.cbxObject.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxObject.FormattingEnabled = true;
             this.cbxObject.Location = new System.Drawing.Point(242, 13);
             this.cbxObject.Name = "cbxObject";
             this.cbxObject.Size = new System.Drawing.Size(213, 33);
             this.cbxObject.TabIndex = 19;
+            this.cbxObject.SelectedIndexChanged += new System.EventHandler(this.OnUserInputChanged);
             this.cbxObject.Click += new System.EventHandler(this.cbxObject_Click);
             // 
             // nudSequenceNo
@@ -305,27 +308,32 @@
             this.nudSequenceNo.Name = "nudSequenceNo";
             this.nudSequenceNo.Size = new System.Drawing.Size(213, 31);
             this.nudSequenceNo.TabIndex = 20;
+            this.nudSequenceNo.ValueChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
             // cbxPersonel
             // 
             this.cbxPersonel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxPersonel.FormattingEnabled = true;
             this.cbxPersonel.Location = new System.Drawing.Point(242, 175);
             this.cbxPersonel.Name = "cbxPersonel";
             this.cbxPersonel.Size = new System.Drawing.Size(213, 33);
             this.cbxPersonel.TabIndex = 21;
+            this.cbxPersonel.SelectedIndexChanged += new System.EventHandler(this.OnUserInputChanged);
             this.cbxPersonel.Click += new System.EventHandler(this.cbxPersonel_Click);
             // 
             // cbxActivityType
             // 
             this.cbxActivityType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxActivityType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxActivityType.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxActivityType.FormattingEnabled = true;
             this.cbxActivityType.Location = new System.Drawing.Point(242, 229);
             this.cbxActivityType.Name = "cbxActivityType";
             this.cbxActivityType.Size = new System.Drawing.Size(213, 33);
             this.cbxActivityType.TabIndex = 22;
+            this.cbxActivityType.SelectedIndexChanged += new System.EventHandler(this.OnUserInputChanged);
             this.cbxActivityType.Click += new System.EventHandler(this.cbxActivityType_Click);
             // 
             // txbDescription
@@ -337,16 +345,19 @@
             this.txbDescription.Name = "txbDescription";
             this.txbDescription.Size = new System.Drawing.Size(213, 31);
             this.txbDescription.TabIndex = 25;
+            this.txbDescription.TextChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
             // cbxStatus
             // 
             this.cbxStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Location = new System.Drawing.Point(242, 499);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(213, 33);
             this.cbxStatus.TabIndex = 26;
+            this.cbxStatus.SelectedIndexChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
             // txbStartDate
             // 

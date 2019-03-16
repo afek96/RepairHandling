@@ -140,6 +140,7 @@
             // cbxWorker
             // 
             this.cbxWorker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxWorker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxWorker.FormattingEnabled = true;
             this.cbxWorker.Location = new System.Drawing.Point(154, 210);
             this.cbxWorker.Name = "cbxWorker";
@@ -226,6 +227,7 @@
             // cbxStatus
             // 
             this.cbxStatus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxStatus.FormattingEnabled = true;
             this.cbxStatus.Location = new System.Drawing.Point(436, 210);
             this.cbxStatus.Name = "cbxStatus";

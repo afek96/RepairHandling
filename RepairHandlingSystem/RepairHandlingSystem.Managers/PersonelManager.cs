@@ -18,11 +18,18 @@ namespace RepairHandlingSystem.Managers
         public Personel GetPersonelByUserName(string userName)
         {
             var temp = GetPersonel(new Personel() { UserName = userName });
+
+            if (temp.Count() > 1)
+                return null;
+
             return temp.SingleOrDefault();
         }
 
         public bool CheckPassword(Personel user, string password)
         {
+            if (user == null)
+                return false;
+
             return user.Password == CreatePasswordHash(password);
         }
 

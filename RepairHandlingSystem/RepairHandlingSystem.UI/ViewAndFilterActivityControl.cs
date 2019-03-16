@@ -76,6 +76,8 @@ namespace RepairHandlingSystem.UI
             dgvActivities.Columns["CreateDateTo"].Visible = false;
             dgvActivities.Columns["EndDateFrom"].Visible = false;
             dgvActivities.Columns["EndDateTo"].Visible = false;
+
+            btnActivityEdit.Enabled = btnActivityShow.Enabled = dgvActivities?.CurrentRow?.DataBoundItem != null;
         }
 
         private void btnFilterClear_Click(object sender, EventArgs e)

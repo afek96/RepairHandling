@@ -70,8 +70,8 @@ namespace RepairHandlingSystem.Managers
 
             return dc.Activities.Where(a =>
                 (searchCriteria.IdActivity == 0 || a.IdActivity == searchCriteria.IdActivity) &&
-                (searchCriteria.IdRequest == 0 || a.IdRequest == searchCriteria.IdRequest) &&
-                (searchCriteria.IdPersonel == 0 || a.IdPersonel == searchCriteria.IdPersonel) &&
+                (searchCriteria.IdRequest == 0 || searchCriteria.IdRequest == null || a.IdRequest == searchCriteria.IdRequest) &&
+                (searchCriteria.IdPersonel == null || a.IdPersonel == searchCriteria.IdPersonel) &&
                 (string.IsNullOrEmpty(searchCriteria.Description) || a.Description.Contains(searchCriteria.Description)) &&
                 (string.IsNullOrEmpty(searchCriteria.Result) || a.Result.Contains(searchCriteria.Result)) &&
                 (string.IsNullOrEmpty(searchCriteria.Status) || a.Status.Equals(searchCriteria.Status)) &&
