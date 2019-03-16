@@ -21,15 +21,24 @@ namespace RepairHandlingSystem.UI
             InitializeComponent();
         }
 
-        public void Initialize(RequestManager requestManager)
+        public void Initialize(RequestManager requestManager, PersonelManager personelManager)
         {
             _requestManager = requestManager;
             requestControl.Initialize(requestManager);
+            vafRequestControl.OnRequestSelected += VafRequestControl_OnRequestSelected;
+            vafRequestControl.Initialize(requestManager);
+            vafActivityControl.Initialize(requestManager, personelManager);
+        }
+
+        private void VafRequestControl_OnRequestSelected(Request selectedRequest)
+        {
+            vafActivityControl.CurrentRequest = selectedRequest;
         }
 
         public void SetCurrentUser(Personel currentUser)
         {
             requestControl.CurrentUser = currentUser;
+            vafRequestControl.CurrentUser = currentUser;
         }
     }
 }

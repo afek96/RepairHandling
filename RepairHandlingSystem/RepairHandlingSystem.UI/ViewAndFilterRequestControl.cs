@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepairHandlingSystem.DAL;
 using RepairHandlingSystem.Managers;
+using RepairHandlingSystem.Common;
 
 namespace RepairHandlingSystem.UI
 {
@@ -17,6 +18,17 @@ namespace RepairHandlingSystem.UI
         private RequestManager _requestManager;
 
         public Personel CurrentUser { get; set; }
+
+        public event Action<Request> OnRequestSelected;
+
+        private void CallOnRequestSelected(Request selectedRequest)
+        {
+            try
+            {
+                OnRequestSelected?.Invoke(selectedRequest);
+            }
+            catch (Exception ex) {}
+        }
 
         public ViewAndFilterRequestControl()
         {
@@ -28,6 +40,9 @@ namespace RepairHandlingSystem.UI
         public void Initialize(RequestManager requestManager)
         {
             _requestManager = requestManager;
+
+            cbxStatus.DataSource = Enum.GetValues(typeof(StatusEnum));
+            cbxStatus.SelectedIndex = -1;
         }
 
         private void btnFilterClear_Click(object sender, EventArgs e)
@@ -58,9 +73,38 @@ namespace RepairHandlingSystem.UI
             dgvRequests.SelectionChanged -= new EventHandler(dgvRequests_SelectionChanged);
             dgvRequests.DataSource = _requestManager.GetRequests(searchCriteria);
             dgvRequests.SelectionChanged += new EventHandler(dgvRequests_SelectionChanged);
+
+            dgvRequests.Columns["IdPersonel"].Visible = false;
+            dgvRequests.Columns["IdObject"].Visible = false;
+            dgvRequests.Columns["IdRequest"].Visible = false;
+            dgvRequests.Columns["CreateDateFrom"].Visible = false;
+            dgvRequests.Columns["CreateDateTo"].Visible = false;
+            dgvRequests.Columns["EndDateFrom"].Visible = false;
+            dgvRequests.Columns["EndDateTo"].Visible = false;
+
+            CallOnRequestSelected((Request)dgvRequests?.CurrentRow?.DataBoundItem);
+            btnRequestEdit.Enabled = btnRequestShow.Enabled = dgvRequests?.CurrentRow?.DataBoundItem != null;
         }
 
         private void dgvRequests_SelectionChanged(object sender, EventArgs e)
+        {
+            CallOnRequestSelected((Request)dgvRequests?.CurrentRow?.DataBoundItem);
+            btnRequestEdit.Enabled = btnRequestShow.Enabled = dgvRequests?.CurrentRow?.DataBoundItem != null;
+        }
+
+        private void cbxObject_Click(object sender, EventArgs e)
+        {
+            var objects = _requestManager.GetObjects(null);
+            cbxObject.DataSource = objects;
+            cbxObject.DisplayMember = "DisplayName";
+        }
+
+        private void btnRequestEdit_Click(object sender, EventArgs e)
+        {
+            //TODO
+        }
+
+        private void btnRequestShow_Click(object sender, EventArgs e)
         {
 
         }

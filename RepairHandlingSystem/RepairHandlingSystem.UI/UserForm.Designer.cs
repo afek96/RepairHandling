@@ -113,7 +113,7 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.091666F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.Size = new System.Drawing.Size(461, 570);
+            this.tlpMain.Size = new System.Drawing.Size(461, 572);
             this.tlpMain.TabIndex = 0;
             // 
             // lblRole
@@ -121,10 +121,10 @@
             this.lblRole.AutoSize = true;
             this.lblRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblRole.Location = new System.Drawing.Point(13, 310);
+            this.lblRole.Location = new System.Drawing.Point(13, 316);
             this.lblRole.Name = "lblRole";
             this.lblRole.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblRole.Size = new System.Drawing.Size(209, 40);
+            this.lblRole.Size = new System.Drawing.Size(209, 41);
             this.lblRole.TabIndex = 12;
             this.lblRole.Text = "Role:";
             this.lblRole.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -136,7 +136,7 @@
             this.lblLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lblLogin.Location = new System.Drawing.Point(13, 10);
             this.lblLogin.Name = "lblLogin";
-            this.lblLogin.Size = new System.Drawing.Size(209, 40);
+            this.lblLogin.Size = new System.Drawing.Size(209, 41);
             this.lblLogin.TabIndex = 0;
             this.lblLogin.Text = "Login:";
             this.lblLogin.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -146,9 +146,9 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPassword.Location = new System.Drawing.Point(13, 60);
+            this.lblPassword.Location = new System.Drawing.Point(13, 61);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(209, 40);
+            this.lblPassword.Size = new System.Drawing.Size(209, 41);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password:";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -158,9 +158,9 @@
             this.lblPasswordConfirm.AutoSize = true;
             this.lblPasswordConfirm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPasswordConfirm.Location = new System.Drawing.Point(13, 110);
+            this.lblPasswordConfirm.Location = new System.Drawing.Point(13, 112);
             this.lblPasswordConfirm.Name = "lblPasswordConfirm";
-            this.lblPasswordConfirm.Size = new System.Drawing.Size(209, 40);
+            this.lblPasswordConfirm.Size = new System.Drawing.Size(209, 41);
             this.lblPasswordConfirm.TabIndex = 2;
             this.lblPasswordConfirm.Text = "Confirm Password:";
             this.lblPasswordConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -170,9 +170,9 @@
             this.btnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAccept.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAccept.Location = new System.Drawing.Point(13, 513);
+            this.btnAccept.Location = new System.Drawing.Point(13, 523);
             this.btnAccept.Name = "btnAccept";
-            this.btnAccept.Size = new System.Drawing.Size(209, 34);
+            this.btnAccept.Size = new System.Drawing.Size(209, 35);
             this.btnAccept.TabIndex = 11;
             this.btnAccept.Text = "Register";
             this.btnAccept.UseVisualStyleBackColor = true;
@@ -183,9 +183,9 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnCancel.Location = new System.Drawing.Point(238, 513);
+            this.btnCancel.Location = new System.Drawing.Point(238, 523);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(209, 34);
+            this.btnCancel.Size = new System.Drawing.Size(209, 35);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             // 
             this.txbPasswordConfirm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbPasswordConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbPasswordConfirm.Location = new System.Drawing.Point(238, 113);
+            this.txbPasswordConfirm.Location = new System.Drawing.Point(238, 115);
             this.txbPasswordConfirm.MaxLength = 50;
             this.txbPasswordConfirm.Name = "txbPasswordConfirm";
             this.txbPasswordConfirm.Size = new System.Drawing.Size(209, 31);
@@ -207,7 +207,7 @@
             // 
             this.txbPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbPassword.Location = new System.Drawing.Point(238, 63);
+            this.txbPassword.Location = new System.Drawing.Point(238, 64);
             this.txbPassword.MaxLength = 50;
             this.txbPassword.Name = "txbPassword";
             this.txbPassword.Size = new System.Drawing.Size(209, 31);
@@ -233,9 +233,9 @@
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblFirstName.Location = new System.Drawing.Point(13, 210);
+            this.lblFirstName.Location = new System.Drawing.Point(13, 214);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(209, 40);
+            this.lblFirstName.Size = new System.Drawing.Size(209, 41);
             this.lblFirstName.TabIndex = 8;
             this.lblFirstName.Text = "First Name:";
             this.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -245,9 +245,9 @@
             this.lblLastName.AutoSize = true;
             this.lblLastName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblLastName.Location = new System.Drawing.Point(13, 260);
+            this.lblLastName.Location = new System.Drawing.Point(13, 265);
             this.lblLastName.Name = "lblLastName";
-            this.lblLastName.Size = new System.Drawing.Size(209, 40);
+            this.lblLastName.Size = new System.Drawing.Size(209, 41);
             this.lblLastName.TabIndex = 9;
             this.lblLastName.Text = "Last Name:";
             this.lblLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -256,7 +256,7 @@
             // 
             this.txbFirstName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbFirstName.Location = new System.Drawing.Point(238, 213);
+            this.txbFirstName.Location = new System.Drawing.Point(238, 217);
             this.txbFirstName.MaxLength = 50;
             this.txbFirstName.Name = "txbFirstName";
             this.txbFirstName.Size = new System.Drawing.Size(209, 31);
@@ -268,7 +268,7 @@
             // 
             this.txbLastName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbLastName.Location = new System.Drawing.Point(238, 263);
+            this.txbLastName.Location = new System.Drawing.Point(238, 268);
             this.txbLastName.MaxLength = 50;
             this.txbLastName.Name = "txbLastName";
             this.txbLastName.Size = new System.Drawing.Size(209, 31);
@@ -281,7 +281,7 @@
             this.cbxRole.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbxRole.FormattingEnabled = true;
-            this.cbxRole.Location = new System.Drawing.Point(238, 313);
+            this.cbxRole.Location = new System.Drawing.Point(238, 319);
             this.cbxRole.Name = "cbxRole";
             this.cbxRole.Size = new System.Drawing.Size(209, 33);
             this.cbxRole.TabIndex = 7;
@@ -292,9 +292,9 @@
             this.lblExpiaryDate.AutoSize = true;
             this.lblExpiaryDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblExpiaryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblExpiaryDate.Location = new System.Drawing.Point(13, 360);
+            this.lblExpiaryDate.Location = new System.Drawing.Point(13, 367);
             this.lblExpiaryDate.Name = "lblExpiaryDate";
-            this.lblExpiaryDate.Size = new System.Drawing.Size(209, 40);
+            this.lblExpiaryDate.Size = new System.Drawing.Size(209, 41);
             this.lblExpiaryDate.TabIndex = 14;
             this.lblExpiaryDate.Text = "Expiary Date:";
             this.lblExpiaryDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -305,7 +305,7 @@
             this.dtpExpiaryDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpExpiaryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.dtpExpiaryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpExpiaryDate.Location = new System.Drawing.Point(238, 363);
+            this.dtpExpiaryDate.Location = new System.Drawing.Point(238, 370);
             this.dtpExpiaryDate.Name = "dtpExpiaryDate";
             this.dtpExpiaryDate.Size = new System.Drawing.Size(209, 31);
             this.dtpExpiaryDate.TabIndex = 8;
@@ -316,9 +316,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblName.Location = new System.Drawing.Point(13, 160);
+            this.lblName.Location = new System.Drawing.Point(13, 163);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(209, 40);
+            this.lblName.Size = new System.Drawing.Size(209, 41);
             this.lblName.TabIndex = 16;
             this.lblName.Text = "Name:";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -328,9 +328,9 @@
             this.lblPhoneNumber.AutoSize = true;
             this.lblPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblPhoneNumber.Location = new System.Drawing.Point(13, 410);
+            this.lblPhoneNumber.Location = new System.Drawing.Point(13, 418);
             this.lblPhoneNumber.Name = "lblPhoneNumber";
-            this.lblPhoneNumber.Size = new System.Drawing.Size(209, 40);
+            this.lblPhoneNumber.Size = new System.Drawing.Size(209, 41);
             this.lblPhoneNumber.TabIndex = 17;
             this.lblPhoneNumber.Text = "Phone Number:";
             this.lblPhoneNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -340,9 +340,9 @@
             this.lblAddress.AutoSize = true;
             this.lblAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblAddress.Location = new System.Drawing.Point(13, 460);
+            this.lblAddress.Location = new System.Drawing.Point(13, 469);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(209, 40);
+            this.lblAddress.Size = new System.Drawing.Size(209, 41);
             this.lblAddress.TabIndex = 18;
             this.lblAddress.Text = "Address(optional):";
             this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -351,7 +351,7 @@
             // 
             this.txbPhoneNumber.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbPhoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbPhoneNumber.Location = new System.Drawing.Point(238, 413);
+            this.txbPhoneNumber.Location = new System.Drawing.Point(238, 421);
             this.txbPhoneNumber.MaxLength = 15;
             this.txbPhoneNumber.Name = "txbPhoneNumber";
             this.txbPhoneNumber.Size = new System.Drawing.Size(209, 31);
@@ -363,9 +363,9 @@
             // 
             this.btnAddress.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnAddress.Location = new System.Drawing.Point(238, 463);
+            this.btnAddress.Location = new System.Drawing.Point(238, 472);
             this.btnAddress.Name = "btnAddress";
-            this.btnAddress.Size = new System.Drawing.Size(209, 34);
+            this.btnAddress.Size = new System.Drawing.Size(209, 35);
             this.btnAddress.TabIndex = 10;
             this.btnAddress.Text = "Fill Address Form";
             this.btnAddress.UseVisualStyleBackColor = true;
@@ -375,7 +375,7 @@
             // 
             this.txbName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txbName.Location = new System.Drawing.Point(238, 163);
+            this.txbName.Location = new System.Drawing.Point(238, 166);
             this.txbName.MaxLength = 50;
             this.txbName.Name = "txbName";
             this.txbName.Size = new System.Drawing.Size(209, 31);
@@ -389,7 +389,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(461, 570);
+            this.ClientSize = new System.Drawing.Size(461, 572);
             this.ControlBox = false;
             this.Controls.Add(this.tlpMain);
             this.Name = "UserForm";

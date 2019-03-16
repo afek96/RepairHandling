@@ -33,11 +33,11 @@ namespace RepairHandlingSystem.Managers
                 return dc.Personels;
 
             return dc.Personels.Where(p => 
-                (string.IsNullOrEmpty(searchCriteria.FirstName) || p.FirstName.StartsWith(searchCriteria.FirstName))
-                && (string.IsNullOrEmpty(searchCriteria.LastName) || p.LastName.StartsWith(searchCriteria.LastName))
-                && (string.IsNullOrEmpty(searchCriteria.UserName) || p.UserName.StartsWith(searchCriteria.UserName))
-                && (string.IsNullOrEmpty(searchCriteria.Role) || p.Role.StartsWith(searchCriteria.Role))
-                && (!searchCriteria.ExpiryDateFrom.HasValue || (p.ExpiryDate.HasValue && p.ExpiryDate > searchCriteria.ExpiryDateFrom && p.ExpiryDate < searchCriteria.ExpiryDateTo)));
+                (string.IsNullOrEmpty(searchCriteria.FirstName) || p.FirstName.StartsWith(searchCriteria.FirstName)) &&
+                (string.IsNullOrEmpty(searchCriteria.LastName) || p.LastName.StartsWith(searchCriteria.LastName)) &&
+                (string.IsNullOrEmpty(searchCriteria.UserName) || p.UserName.StartsWith(searchCriteria.UserName)) &&
+                (string.IsNullOrEmpty(searchCriteria.Role) || p.Role.Equals(searchCriteria.Role)) &&
+                (!searchCriteria.ExpiryDateFrom.HasValue || (p.ExpiryDate.HasValue && p.ExpiryDate > searchCriteria.ExpiryDateFrom && p.ExpiryDate < searchCriteria.ExpiryDateTo)));
         }
 
         public void AddPersonel(Personel personel)

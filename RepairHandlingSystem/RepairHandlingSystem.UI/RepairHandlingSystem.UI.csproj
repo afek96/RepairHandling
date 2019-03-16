@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivityRequestForm.Designer.cs">
+      <DependentUpon>ActivityRequestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddressForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ActivityRequestForm.resx">
+      <DependentUpon>ActivityRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddressForm.resx">
       <DependentUpon>AddressForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +162,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RepairHandlingSystem.Common\RepairHandlingSystem.Common.csproj">
+      <Project>{74256963-E06F-4EE0-9918-7B84EEDC83DF}</Project>
+      <Name>RepairHandlingSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepairHandlingSystem.DAL\RepairHandlingSystem.DAL.csproj">
       <Project>{BA7E0E30-2213-485C-91E2-2E6AEF3D4FD1}</Project>
       <Name>RepairHandlingSystem.DAL</Name>

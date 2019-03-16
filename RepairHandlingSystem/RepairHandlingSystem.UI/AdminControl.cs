@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using RepairHandlingSystem.Managers;
 using static RepairHandlingSystem.DAL.Role;
 using RepairHandlingSystem.DAL;
+using RepairHandlingSystem.Common;
 
 namespace RepairHandlingSystem.UI
 {
@@ -66,6 +67,8 @@ namespace RepairHandlingSystem.UI
             dgvUsers.Columns["IdPersonel"].Visible = false;
             dgvUsers.Columns["Password"].Visible = false;
             dgvUsers.Columns["Role1"].Visible = false;
+            dgvUsers.Columns["ExpiryDateFrom"].Visible = false;
+            dgvUsers.Columns["ExpiryDateTo"].Visible = false;
 
             btnUserEdit.Enabled = btnUserShowInfo.Enabled = dgvUsers.CurrentRow != null;
         }

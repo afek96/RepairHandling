@@ -27,6 +27,11 @@ namespace RepairHandlingSystem.DAL
             Role = p.Role;
             Password = p.Password;
         }
+
+        public override string ToString()
+        {
+            return DisplayName;
+        }
     }
 
     partial class Client
@@ -38,16 +43,16 @@ namespace RepairHandlingSystem.DAL
                 return string.IsNullOrEmpty(Name) ? $"{FirstName} {LastName}" : Name;
             }
         }
+
+        public override string ToString()
+        {
+            return DisplayName;
+        }
     }
 
     partial class Role
     {
-        public enum RoleEnum
-        {
-            ADM,
-            MAN,
-            WOR
-        }
+        
     }
 
     partial class Object
@@ -59,13 +64,11 @@ namespace RepairHandlingSystem.DAL
                 return $"{Client.DisplayName} - {Type}";
             }
         }
-    }
-    public enum StatusEnum
-    {
-        OPN,
-        PRO,
-        CAN,
-        FIN
+
+        public override string ToString()
+        {
+            return DisplayName;
+        }
     }
 
     partial class Request
@@ -77,6 +80,11 @@ namespace RepairHandlingSystem.DAL
         public DateTime? EndDateFrom { get; set; }
 
         public DateTime? EndDateTo { get; set; }
+
+        public override string ToString()
+        {
+            return Object.ToString();
+        }
     }
 
     partial class Activity
@@ -88,5 +96,10 @@ namespace RepairHandlingSystem.DAL
         public DateTime? EndDateFrom { get; set; }
 
         public DateTime? EndDateTo { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Request} - {Type}";
+        }
     }
 }

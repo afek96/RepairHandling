@@ -1,4 +1,5 @@
-﻿using RepairHandlingSystem.DAL;
+﻿using RepairHandlingSystem.Common;
+using RepairHandlingSystem.DAL;
 using RepairHandlingSystem.Managers;
 using RepairHandlingSystem.UI;
 using System;
@@ -10,7 +11,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static RepairHandlingSystem.DAL.Role;
 
 namespace RepairHandlingSystem
 {
@@ -31,12 +31,12 @@ namespace RepairHandlingSystem
 
             InitAdminControl(_personelManager);
 
-            InitManagerControl(_requestManager);
+            InitManagerControl(_requestManager, _personelManager);
         }
 
-        private void InitManagerControl(RequestManager requestManager)
+        private void InitManagerControl(RequestManager requestManager, PersonelManager personelManager)
         {
-            managerControl.Initialize(requestManager);
+            managerControl.Initialize(requestManager, personelManager);
         }
 
         private void InitAdminControl(PersonelManager personelManager)

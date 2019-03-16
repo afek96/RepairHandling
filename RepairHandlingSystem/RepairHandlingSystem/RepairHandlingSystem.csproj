@@ -80,6 +80,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RepairHandlingSystem.Common\RepairHandlingSystem.Common.csproj">
+      <Project>{74256963-E06F-4EE0-9918-7B84EEDC83DF}</Project>
+      <Name>RepairHandlingSystem.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RepairHandlingSystem.DAL\RepairHandlingSystem.DAL.csproj">
       <Project>{BA7E0E30-2213-485C-91E2-2E6AEF3D4FD1}</Project>
       <Name>RepairHandlingSystem.DAL</Name>

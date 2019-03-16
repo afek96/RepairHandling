@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RepairHandlingSystem.Managers;
 using RepairHandlingSystem.DAL;
+using RepairHandlingSystem.Common;
 
 namespace RepairHandlingSystem.UI
 {

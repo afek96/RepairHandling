@@ -1,4 +1,5 @@
-﻿using RepairHandlingSystem.DAL;
+﻿using RepairHandlingSystem.Common;
+using RepairHandlingSystem.DAL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static RepairHandlingSystem.DAL.Role;
 
 namespace RepairHandlingSystem.UI
 {
-    public enum FormModeEnum
-    {
-        Create,
-        Edit,
-        View
-    }
-
     public partial class UserForm : Form
     {
         #region Private Fields
@@ -108,37 +101,11 @@ namespace RepairHandlingSystem.UI
 
         private void InitCreateMode() {}
 
-        private void InitAddressForm()
+        private void InitEditMode()
         {
-            if (_forPersonel)
-                return;
-
-            _addressForm = new AddressForm(_mode);
-            _addressForm.Address = Client?.Address;
-        }
-
-        private void InitTableLayoutPanel()
-        {
-            if (_forPersonel)
-            {
-                HideRows(_rowsUnnecessaryForPersonel);
-
-                if (_mode == FormModeEnum.View)
-                {
-                    HideRows(_rowsUnnecessaryForPersonelInViewMode);
-                }
-            }
-            else
-            {
-                HideRows(_rowsUnnecessaryForClient);
-            }
-
-            /** Wyjaśnienie poniższej linii kodu
-             * tableLayoutPanel[tlpMain] ma jednen wiersz o wysokości 10px, a drugi wiersz ma domyślnie wielkość 40px razem mają 50px 
-             * (2 usunięte wiersze[_rowsRemoved] mają 50px) 
-             * skoro te wiersze stają się niewidoczne to możemy odjąć ich wysokość od wysokości kontorlki
-             */
-            Height -= _rowsRemoved / 2 * 50;
+            txbUserName.Enabled = false;
+            btnAccept.Text = "Edit";
+            btnAddress.Text = "Edit Address Form";
         }
 
         private void InitViewMode()
@@ -158,16 +125,42 @@ namespace RepairHandlingSystem.UI
             tlpMain.SetColumnSpan(btnAccept, 3);
         }
 
+        private void InitTableLayoutPanel()
+        {
+            if (_forPersonel)
+            {
+                HideRows(_rowsUnnecessaryForPersonel);
+
+                if (_mode == FormModeEnum.View)
+                {
+                    HideRows(_rowsUnnecessaryForPersonelInViewMode);
+                }
+            }
+            else
+            {
+                HideRows(_rowsUnnecessaryForClient);
+            }
+
+            /** Wyjaśnienie poniższej linii kodu
+             * tableLayoutPanel[tlpMain] ma jednen wiersz o wysokości 10px, a drugi wiersz ma domyślnie wielkość 41px razem mają 51px 
+             * (2 usunięte wiersze[_rowsRemoved] mają 51px) 
+             * skoro te wiersze stają się niewidoczne to możemy odjąć ich wysokość od wysokości kontorlki
+             */
+            Height -= _rowsRemoved / 2 * 51;
+        }
+
+        private void InitAddressForm()
+        {
+            if (_forPersonel)
+                return;
+
+            _addressForm = new AddressForm(_mode);
+            _addressForm.Address = Client?.Address;
+        }
+
         internal void DisableRoleChange()
         {
             cbxRole.Enabled = false;
-        }
-
-        private void InitEditMode()
-        {
-            txbUserName.Enabled = false;
-            btnAccept.Text = "Edit";
-            btnAddress.Text = "Edit Address Form";
         }
 
         #endregion

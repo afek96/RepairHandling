@@ -147,5 +147,16 @@ namespace RepairHandlingSystem.Managers
                 (string.IsNullOrEmpty(searchCriteria.Status) || a.Status.Equals(searchCriteria.Status)) &&
                 (string.IsNullOrEmpty(searchCriteria.Type) || a.Type.StartsWith(searchCriteria.Type)));
         }
+
+        public IQueryable<ActivityType> GetActivityTypes(ActivityType searchCriteria)
+        {
+            DataClassesRepairDataContext dc = new DataClassesRepairDataContext();
+            if (searchCriteria == null)
+                return dc.ActivityTypes;
+
+            return dc.ActivityTypes.Where(a =>
+                (string.IsNullOrEmpty(searchCriteria.ActType) || a.ActType.StartsWith(searchCriteria.ActType)) &&
+                (string.IsNullOrEmpty(searchCriteria.Name) || a.Name.Contains(searchCriteria.Name)));
+        }
     }
 }
