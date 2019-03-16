@@ -70,6 +70,12 @@ namespace RepairHandlingSystem.DAL
 
     partial class Request
     {
-        
+        public DateTime? CreateDateFrom { get; set; }
+
+        public DateTime? CreateDateTo { get; set; }
+
+        public DateTime? EndDateFrom { get; set; }
+
+        public DateTime? EndDateTo { get; set; }
     }
 }

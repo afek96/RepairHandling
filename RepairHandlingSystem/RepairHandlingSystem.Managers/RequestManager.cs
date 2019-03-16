@@ -36,7 +36,9 @@ namespace RepairHandlingSystem.Managers
                 (searchCriteria.IdObject == 0 || r.IdObject == searchCriteria.IdObject) &&
                 (string.IsNullOrEmpty(searchCriteria.Description) || r.Description.Contains(searchCriteria.Description)) &&
                 (string.IsNullOrEmpty(searchCriteria.Result) || r.Result.Contains(searchCriteria.Result)) &&
-                (string.IsNullOrEmpty(searchCriteria.Status) || r.Status.Equals(searchCriteria.Status)));
+                (string.IsNullOrEmpty(searchCriteria.Status) || r.Status.Equals(searchCriteria.Status)) &&
+                (!searchCriteria.CreateDateFrom.HasValue || (r.CreateDate > searchCriteria.CreateDateFrom && r.CreateDate < searchCriteria.CreateDateTo)) &&
+                (!searchCriteria.EndDateFrom.HasValue || (r.EndDate.HasValue && r.EndDate > searchCriteria.EndDateFrom && r.EndDate < searchCriteria.EndDateTo)));
         }
 
         public void AddClient(Client client)

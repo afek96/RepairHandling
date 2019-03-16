@@ -41,12 +41,12 @@
             this.cbxRole = new System.Windows.Forms.ComboBox();
             this.btnFilterSearch = new System.Windows.Forms.Button();
             this.btnFilterClear = new System.Windows.Forms.Button();
+            this.dtrpExpiryDate = new RepairHandlingSystem.UI.DateTimeRangePickerControl();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.tlpButtons = new System.Windows.Forms.TableLayoutPanel();
             this.btnUserAdd = new System.Windows.Forms.Button();
             this.btnUserEdit = new System.Windows.Forms.Button();
             this.btnUserShowInfo = new System.Windows.Forms.Button();
-            this.dtrpExpiryDate = new RepairHandlingSystem.UI.DateTimeRangePickerControl();
             this.tlpMain.SuspendLayout();
             this.gbFilter.SuspendLayout();
             this.tlpFilter.SuspendLayout();
@@ -228,6 +228,14 @@
             this.btnFilterClear.UseVisualStyleBackColor = true;
             this.btnFilterClear.Click += new System.EventHandler(this.btnFilterClear_Click);
             // 
+            // dtrpExpiryDate
+            // 
+            this.dtrpExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtrpExpiryDate.Location = new System.Drawing.Point(535, 3);
+            this.dtrpExpiryDate.Name = "dtrpExpiryDate";
+            this.dtrpExpiryDate.Size = new System.Drawing.Size(263, 51);
+            this.dtrpExpiryDate.TabIndex = 7;
+            // 
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
@@ -297,14 +305,6 @@
             this.btnUserShowInfo.Text = "Show User Info";
             this.btnUserShowInfo.UseVisualStyleBackColor = true;
             this.btnUserShowInfo.Click += new System.EventHandler(this.btnUserShowInfo_Click);
-            // 
-            // dtrpExpiryDate
-            // 
-            this.dtrpExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtrpExpiryDate.Location = new System.Drawing.Point(535, 3);
-            this.dtrpExpiryDate.Name = "dtrpExpiryDate";
-            this.dtrpExpiryDate.Size = new System.Drawing.Size(263, 51);
-            this.dtrpExpiryDate.TabIndex = 7;
             // 
             // AdminControl
             // 

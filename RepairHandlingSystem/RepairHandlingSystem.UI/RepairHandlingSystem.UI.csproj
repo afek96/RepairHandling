@@ -98,6 +98,12 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewAndFilterRequestControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewAndFilterRequestControl.Designer.cs">
+      <DependentUpon>ViewAndFilterRequestControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkerControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewAndFilterRequestControl.resx">
+      <DependentUpon>ViewAndFilterRequestControl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -22,6 +22,7 @@ namespace RepairHandlingSystem.UI
         public AdminControl()
         {
             InitializeComponent();
+            dtrpExpiryDate.Text = "Expiry Date:";
         }
 
         public void Initialize(PersonelManager personelManager)
