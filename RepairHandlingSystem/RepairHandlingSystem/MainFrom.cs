@@ -32,6 +32,14 @@ namespace RepairHandlingSystem
             InitAdminControl(_personelManager);
 
             InitManagerControl(_requestManager, _personelManager);
+
+            InitWorkerTab();
+        }
+
+        private void InitWorkerTab()
+        {
+            vafActivityControlForWorker.CurrentRequest = null;
+            vafActivityControlForWorker.Initialize(_requestManager, _personelManager);
         }
 
         private void InitManagerControl(RequestManager requestManager, PersonelManager personelManager)
@@ -71,6 +79,7 @@ namespace RepairHandlingSystem
                     tcMain.SelectTab("tpManager");
                     break;
                 case RoleEnum.WOR:
+                    vafActivityControlForWorker.CurrentWorker = user;
                     tcMain.SelectTab("tpWorker");
                     break;
                 default:

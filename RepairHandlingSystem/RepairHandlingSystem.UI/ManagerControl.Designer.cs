@@ -29,9 +29,13 @@
         private void InitializeComponent()
         {
             this.tlpSplit = new System.Windows.Forms.TableLayoutPanel();
-            this.vafActivityControl = new RepairHandlingSystem.UI.ViewAndFilterActivityControl();
+            this.gbRequest = new System.Windows.Forms.GroupBox();
             this.vafRequestControl = new RepairHandlingSystem.UI.ViewAndFilterRequestControl();
+            this.gbActivity = new System.Windows.Forms.GroupBox();
+            this.vafActivityControl = new RepairHandlingSystem.UI.ViewAndFilterActivityControl();
             this.tlpSplit.SuspendLayout();
+            this.gbRequest.SuspendLayout();
+            this.gbActivity.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpSplit
@@ -39,8 +43,8 @@
             this.tlpSplit.ColumnCount = 2;
             this.tlpSplit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tlpSplit.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpSplit.Controls.Add(this.vafActivityControl, 1, 0);
-            this.tlpSplit.Controls.Add(this.vafRequestControl, 0, 0);
+            this.tlpSplit.Controls.Add(this.gbRequest, 0, 0);
+            this.tlpSplit.Controls.Add(this.gbActivity, 1, 0);
             this.tlpSplit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpSplit.Location = new System.Drawing.Point(0, 0);
             this.tlpSplit.Name = "tlpSplit";
@@ -49,23 +53,46 @@
             this.tlpSplit.Size = new System.Drawing.Size(1175, 486);
             this.tlpSplit.TabIndex = 11;
             // 
-            // vafActivityControl
+            // gbRequest
             // 
-            this.vafActivityControl.CurrentRequest = null;
-            this.vafActivityControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vafActivityControl.Location = new System.Drawing.Point(590, 3);
-            this.vafActivityControl.Name = "vafActivityControl";
-            this.vafActivityControl.Size = new System.Drawing.Size(582, 480);
-            this.vafActivityControl.TabIndex = 9;
+            this.gbRequest.Controls.Add(this.vafRequestControl);
+            this.gbRequest.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbRequest.Location = new System.Drawing.Point(3, 3);
+            this.gbRequest.Name = "gbRequest";
+            this.gbRequest.Size = new System.Drawing.Size(581, 480);
+            this.gbRequest.TabIndex = 10;
+            this.gbRequest.TabStop = false;
+            this.gbRequest.Text = "Request";
             // 
             // vafRequestControl
             // 
             this.vafRequestControl.CurrentUser = null;
             this.vafRequestControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.vafRequestControl.Location = new System.Drawing.Point(3, 3);
+            this.vafRequestControl.Location = new System.Drawing.Point(3, 16);
             this.vafRequestControl.Name = "vafRequestControl";
-            this.vafRequestControl.Size = new System.Drawing.Size(581, 480);
-            this.vafRequestControl.TabIndex = 8;
+            this.vafRequestControl.Size = new System.Drawing.Size(575, 461);
+            this.vafRequestControl.TabIndex = 9;
+            // 
+            // gbActivity
+            // 
+            this.gbActivity.Controls.Add(this.vafActivityControl);
+            this.gbActivity.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gbActivity.Location = new System.Drawing.Point(590, 3);
+            this.gbActivity.Name = "gbActivity";
+            this.gbActivity.Size = new System.Drawing.Size(582, 480);
+            this.gbActivity.TabIndex = 11;
+            this.gbActivity.TabStop = false;
+            this.gbActivity.Text = "Activity";
+            // 
+            // vafActivityControl
+            // 
+            this.vafActivityControl.CurrentRequest = null;
+            this.vafActivityControl.CurrentWorker = null;
+            this.vafActivityControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vafActivityControl.Location = new System.Drawing.Point(3, 16);
+            this.vafActivityControl.Name = "vafActivityControl";
+            this.vafActivityControl.Size = new System.Drawing.Size(576, 461);
+            this.vafActivityControl.TabIndex = 10;
             // 
             // ManagerControl
             // 
@@ -75,6 +102,8 @@
             this.Name = "ManagerControl";
             this.Size = new System.Drawing.Size(1175, 486);
             this.tlpSplit.ResumeLayout(false);
+            this.gbRequest.ResumeLayout(false);
+            this.gbActivity.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -82,7 +111,9 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tlpSplit;
-        private ViewAndFilterActivityControl vafActivityControl;
+        private System.Windows.Forms.GroupBox gbRequest;
         private ViewAndFilterRequestControl vafRequestControl;
+        private System.Windows.Forms.GroupBox gbActivity;
+        private ViewAndFilterActivityControl vafActivityControl;
     }
 }

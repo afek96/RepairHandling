@@ -43,7 +43,6 @@
             this.txbFirstName = new System.Windows.Forms.TextBox();
             this.txbLastName = new System.Windows.Forms.TextBox();
             this.cbxRole = new System.Windows.Forms.ComboBox();
-            this.lblExpiaryDate = new System.Windows.Forms.Label();
             this.dtpExpiaryDate = new System.Windows.Forms.DateTimePicker();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPhoneNumber = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.txbPhoneNumber = new System.Windows.Forms.TextBox();
             this.btnAddress = new System.Windows.Forms.Button();
             this.txbName = new System.Windows.Forms.TextBox();
+            this.cbExpiryDate = new System.Windows.Forms.CheckBox();
             this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,7 +77,6 @@
             this.tlpMain.Controls.Add(this.txbFirstName, 3, 9);
             this.tlpMain.Controls.Add(this.txbLastName, 3, 11);
             this.tlpMain.Controls.Add(this.cbxRole, 3, 13);
-            this.tlpMain.Controls.Add(this.lblExpiaryDate, 1, 15);
             this.tlpMain.Controls.Add(this.dtpExpiaryDate, 3, 15);
             this.tlpMain.Controls.Add(this.lblName, 1, 7);
             this.tlpMain.Controls.Add(this.lblPhoneNumber, 1, 17);
@@ -85,6 +84,7 @@
             this.tlpMain.Controls.Add(this.txbPhoneNumber, 3, 17);
             this.tlpMain.Controls.Add(this.btnAddress, 3, 19);
             this.tlpMain.Controls.Add(this.txbName, 3, 7);
+            this.tlpMain.Controls.Add(this.cbExpiryDate, 1, 15);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
@@ -289,18 +289,6 @@
             this.cbxRole.TabIndex = 7;
             this.cbxRole.SelectedIndexChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
-            // lblExpiaryDate
-            // 
-            this.lblExpiaryDate.AutoSize = true;
-            this.lblExpiaryDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblExpiaryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblExpiaryDate.Location = new System.Drawing.Point(13, 367);
-            this.lblExpiaryDate.Name = "lblExpiaryDate";
-            this.lblExpiaryDate.Size = new System.Drawing.Size(209, 41);
-            this.lblExpiaryDate.TabIndex = 14;
-            this.lblExpiaryDate.Text = "Expiary Date:";
-            this.lblExpiaryDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // dtpExpiaryDate
             // 
             this.dtpExpiaryDate.CustomFormat = "dd/MM/yyyy HH:mm";
@@ -385,6 +373,19 @@
             this.txbName.Tag = "";
             this.txbName.TextChanged += new System.EventHandler(this.OnUserInputChanged);
             // 
+            // cbExpiryDate
+            // 
+            this.cbExpiryDate.AutoSize = true;
+            this.cbExpiryDate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cbExpiryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cbExpiryDate.Location = new System.Drawing.Point(13, 370);
+            this.cbExpiryDate.Name = "cbExpiryDate";
+            this.cbExpiryDate.Size = new System.Drawing.Size(209, 35);
+            this.cbExpiryDate.TabIndex = 19;
+            this.cbExpiryDate.Text = "Expiry Date:";
+            this.cbExpiryDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbExpiryDate.UseVisualStyleBackColor = true;
+            // 
             // UserForm
             // 
             this.AcceptButton = this.btnAccept;
@@ -420,7 +421,6 @@
         private System.Windows.Forms.TextBox txbLastName;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.ComboBox cbxRole;
-        private System.Windows.Forms.Label lblExpiaryDate;
         private System.Windows.Forms.DateTimePicker dtpExpiaryDate;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPhoneNumber;
@@ -428,5 +428,6 @@
         private System.Windows.Forms.TextBox txbPhoneNumber;
         private System.Windows.Forms.Button btnAddress;
         private System.Windows.Forms.TextBox txbName;
+        private System.Windows.Forms.CheckBox cbExpiryDate;
     }
 }

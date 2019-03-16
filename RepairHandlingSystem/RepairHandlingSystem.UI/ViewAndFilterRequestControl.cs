@@ -67,7 +67,7 @@ namespace RepairHandlingSystem.UI
                 Description = txbDescription.Text,
                 Result = txbResult.Text,
                 Personel = CurrentUser,
-                Status = cbxStatus.SelectedText
+                Status = cbxStatus.SelectedItem?.ToString()
             };
 
             dgvRequests.SelectionChanged -= new EventHandler(dgvRequests_SelectionChanged);

@@ -114,13 +114,22 @@ namespace RepairHandlingSystem.UI
             InitializeComponent();
         }
 
-        public ActivityRequestForm(FormModeEnum mode, bool forRequest, Request currentRequestForActivity = null, Personel currentUser = null)
+        public ActivityRequestForm(FormModeEnum mode, bool forRequest, Request currentRequestForActivity = null, Personel currentUser = null, bool forWorker = false)
         {
             _mode = mode;
             _forRequest = forRequest;
             _currentRequestForActivity = currentRequestForActivity;
             _currentUser = currentUser;
             InitializeComponent();
+
+            if(forWorker)
+            {
+                nudSequenceNo.Enabled = false;
+                cbxPersonel.Enabled = false;
+                cbxActivityType.Enabled = false;
+                txbDescription.Enabled = false;
+            }
+
 
             if (_forRequest)
             {
@@ -228,13 +237,13 @@ namespace RepairHandlingSystem.UI
                 Request.IdPersonel = _currentUser.IdPersonel;
                 Request.Description = txbDescription.Text;
                 Request.Result = txbResult.Text;
-                Request.Status = cbxStatus.SelectedText;
+                Request.Status = cbxStatus.SelectedItem.ToString();
             }
             else
             {
-                Activity.IdRequest = _currentRequestForActivity.IdRequest;
+                Activity.IdRequest = _currentRequestForActivity?.IdRequest ?? Activity.IdRequest;
                 Activity.SequenceNo = (int)nudSequenceNo.Value;
-                Activity.IdPersonel = (cbxPersonel.SelectedItem as Personel)?.IdPersonel;
+                Activity.Personel = cbxPersonel.SelectedItem as Personel;
                 Activity.Type = (cbxActivityType.SelectedItem as ActivityType).ActType;
                 Activity.Description = txbDescription.Text;
                 Activity.Result = txbResult.Text;

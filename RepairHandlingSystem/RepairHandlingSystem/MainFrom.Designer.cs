@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.loginControl = new RepairHandlingSystem.UI.LoginControl();
             this.tcMain = new System.Windows.Forms.TabControl();
             this.tpAdmin = new System.Windows.Forms.TabPage();
-            this.adminControl = new RepairHandlingSystem.UI.AdminControl();
             this.tpManager = new System.Windows.Forms.TabPage();
-            this.managerControl = new RepairHandlingSystem.UI.ManagerControl();
             this.tpWorker = new System.Windows.Forms.TabPage();
-            this.workerControl1 = new RepairHandlingSystem.UI.WorkerControl();
             this.btnExit = new System.Windows.Forms.Button();
+            this.loginControl = new RepairHandlingSystem.UI.LoginControl();
+            this.adminControl = new RepairHandlingSystem.UI.AdminControl();
+            this.managerControl = new RepairHandlingSystem.UI.ManagerControl();
+            this.workerControl1 = new RepairHandlingSystem.UI.WorkerControl();
+            this.vafActivityControlForWorker = new RepairHandlingSystem.UI.ViewAndFilterActivityControl();
             this.tlpMain.SuspendLayout();
             this.tcMain.SuspendLayout();
             this.tpAdmin.SuspendLayout();
@@ -56,7 +57,7 @@
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.tlpMain.Controls.Add(this.loginControl, 1, 1);
             this.tlpMain.Controls.Add(this.tcMain, 1, 3);
             this.tlpMain.Controls.Add(this.btnExit, 7, 1);
@@ -75,18 +76,6 @@
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpMain.Size = new System.Drawing.Size(933, 550);
             this.tlpMain.TabIndex = 4;
-            // 
-            // loginControl
-            // 
-            this.tlpMain.SetColumnSpan(this.loginControl, 3);
-            this.loginControl.CurrentUser = null;
-            this.loginControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.loginControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.loginControl.Location = new System.Drawing.Point(18, 17);
-            this.loginControl.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
-            this.loginControl.Name = "loginControl";
-            this.loginControl.Size = new System.Drawing.Size(434, 51);
-            this.loginControl.TabIndex = 3;
             // 
             // tcMain
             // 
@@ -116,15 +105,6 @@
             this.tpAdmin.Text = "Admin";
             this.tpAdmin.UseVisualStyleBackColor = true;
             // 
-            // adminControl
-            // 
-            this.adminControl.CurrentUser = null;
-            this.adminControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.adminControl.Location = new System.Drawing.Point(3, 3);
-            this.adminControl.Name = "adminControl";
-            this.adminControl.Size = new System.Drawing.Size(890, 434);
-            this.adminControl.TabIndex = 4;
-            // 
             // tpManager
             // 
             this.tpManager.Controls.Add(this.managerControl);
@@ -136,16 +116,9 @@
             this.tpManager.Text = "Manager";
             this.tpManager.UseVisualStyleBackColor = true;
             // 
-            // managerControl
-            // 
-            this.managerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.managerControl.Location = new System.Drawing.Point(3, 3);
-            this.managerControl.Name = "managerControl";
-            this.managerControl.Size = new System.Drawing.Size(890, 434);
-            this.managerControl.TabIndex = 0;
-            // 
             // tpWorker
             // 
+            this.tpWorker.Controls.Add(this.vafActivityControlForWorker);
             this.tpWorker.Controls.Add(this.workerControl1);
             this.tpWorker.Location = new System.Drawing.Point(4, 5);
             this.tpWorker.Name = "tpWorker";
@@ -153,14 +126,6 @@
             this.tpWorker.TabIndex = 2;
             this.tpWorker.Text = "Worker";
             this.tpWorker.UseVisualStyleBackColor = true;
-            // 
-            // workerControl1
-            // 
-            this.workerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workerControl1.Location = new System.Drawing.Point(0, 0);
-            this.workerControl1.Name = "workerControl1";
-            this.workerControl1.Size = new System.Drawing.Size(896, 440);
-            this.workerControl1.TabIndex = 0;
             // 
             // btnExit
             // 
@@ -174,6 +139,52 @@
             this.btnExit.Text = "Quit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // loginControl
+            // 
+            this.tlpMain.SetColumnSpan(this.loginControl, 3);
+            this.loginControl.CurrentUser = null;
+            this.loginControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loginControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loginControl.Location = new System.Drawing.Point(18, 17);
+            this.loginControl.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
+            this.loginControl.Name = "loginControl";
+            this.loginControl.Size = new System.Drawing.Size(434, 51);
+            this.loginControl.TabIndex = 3;
+            // 
+            // adminControl
+            // 
+            this.adminControl.CurrentUser = null;
+            this.adminControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.adminControl.Location = new System.Drawing.Point(3, 3);
+            this.adminControl.Name = "adminControl";
+            this.adminControl.Size = new System.Drawing.Size(890, 434);
+            this.adminControl.TabIndex = 4;
+            // 
+            // managerControl
+            // 
+            this.managerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.managerControl.Location = new System.Drawing.Point(3, 3);
+            this.managerControl.Name = "managerControl";
+            this.managerControl.Size = new System.Drawing.Size(890, 434);
+            this.managerControl.TabIndex = 0;
+            // 
+            // workerControl1
+            // 
+            this.workerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workerControl1.Location = new System.Drawing.Point(0, 0);
+            this.workerControl1.Name = "workerControl1";
+            this.workerControl1.Size = new System.Drawing.Size(896, 440);
+            this.workerControl1.TabIndex = 0;
+            // 
+            // vafActivityControlForWorker
+            // 
+            this.vafActivityControlForWorker.CurrentRequest = null;
+            this.vafActivityControlForWorker.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vafActivityControlForWorker.Location = new System.Drawing.Point(0, 0);
+            this.vafActivityControlForWorker.Name = "vafActivityControlForWorker";
+            this.vafActivityControlForWorker.Size = new System.Drawing.Size(896, 440);
+            this.vafActivityControlForWorker.TabIndex = 1;
             // 
             // MainFrom
             // 
@@ -205,6 +216,7 @@
         private System.Windows.Forms.Button btnExit;
         private UI.ManagerControl managerControl;
         private UI.WorkerControl workerControl1;
+        private UI.ViewAndFilterActivityControl vafActivityControlForWorker;
     }
 }
 

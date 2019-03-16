@@ -61,7 +61,7 @@ namespace RepairHandlingSystem.Managers
             using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
             {
                 var dbPersonel = dc.Personels.SingleOrDefault(p => p.IdPersonel == personel.IdPersonel);
-                if (dbPersonel.Password != personel.Password)
+                if (dbPersonel.Password != CreatePasswordHash(personel.Password))
                     personel.Password = CreatePasswordHash(personel.Password);
 
                 dbPersonel.Edit(personel);

@@ -27,6 +27,7 @@ namespace RepairHandlingSystem.DAL
             LastName = p.LastName;
             Role = p.Role;
             Password = p.Password;
+            ExpiryDate = p.ExpiryDate;
         }
 
         public override string ToString()
@@ -125,6 +126,14 @@ namespace RepairHandlingSystem.DAL
 
             Type = activity.Type;
             IdPersonel = activity.IdPersonel;
+        }
+    }
+
+    partial class ActivityType
+    {
+        public override string ToString()
+        {
+            return ActType;
         }
     }
 }

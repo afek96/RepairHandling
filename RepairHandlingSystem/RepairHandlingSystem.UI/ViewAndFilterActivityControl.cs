@@ -18,6 +18,20 @@ namespace RepairHandlingSystem.UI
         private RequestManager _requestManager;
         private PersonelManager _personelManager;
         private Request _currentRequest;
+        private Personel _currentWorker;
+
+        public Personel CurrentWorker
+        {
+            get => _currentWorker;
+            set
+            {
+                _currentWorker = value;
+                cbxWorker.DataSource = new List<Personel>() { value };
+                cbxWorker.DisplayMember = "DisplayName";
+                cbxWorker.Enabled = false;
+                btnFilterSearch.Enabled = true;
+            }
+        }
 
         public Request CurrentRequest
         {
@@ -72,6 +86,7 @@ namespace RepairHandlingSystem.UI
             dgvActivities.Columns["IdPersonel"].Visible = false;
             dgvActivities.Columns["IdActivity"].Visible = false;
             dgvActivities.Columns["IdRequest"].Visible = false;
+            dgvActivities.Columns["Type"].Visible = false;
             dgvActivities.Columns["CreateDateFrom"].Visible = false;
             dgvActivities.Columns["CreateDateTo"].Visible = false;
             dgvActivities.Columns["EndDateFrom"].Visible = false;
@@ -130,7 +145,7 @@ namespace RepairHandlingSystem.UI
 
         private void btnActivityEdit_Click(object sender, EventArgs e)
         {
-            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Edit, false, CurrentRequest);
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Edit, false, CurrentRequest, forWorker: CurrentWorker != null);
             activityRequestForm.Activity = (Activity)dgvActivities.CurrentRow.DataBoundItem;
             activityRequestForm.OnActivityTypesNeeded += ActivityRequestForm_OnActivityTypesNeeded;
             activityRequestForm.OnWorkersNeeded += ActivityRequestForm_OnWorkersNeeded;

@@ -184,7 +184,7 @@ namespace RepairHandlingSystem.UI
                 Personel.Password = txbPassword.Text;
                 Personel.FirstName = txbFirstName.Text;
                 Personel.LastName = txbLastName.Text;
-                Personel.ExpiryDate = dtpExpiaryDate.Value;
+                Personel.ExpiryDate = cbExpiryDate.Checked ? dtpExpiaryDate.Value : (DateTime?)null;
                 Personel.Role = cbxRole.SelectedValue.ToString();
             }
             else
@@ -224,7 +224,7 @@ namespace RepairHandlingSystem.UI
             txbUserName.Text = Personel.UserName;
             txbFirstName.Text = Personel.FirstName;
             txbLastName.Text = Personel.LastName;
-            dtpExpiaryDate.Value = Personel.ExpiryDate.HasValue ? Personel.ExpiryDate.Value : dtpExpiaryDate.MaxDate;
+            dtpExpiaryDate.Value = (cbExpiryDate.Checked = Personel.ExpiryDate.HasValue) ? Personel.ExpiryDate.Value : dtpExpiaryDate.MaxDate;
             cbxRole.SelectedIndex = cbxRole.Items.IndexOf((RoleEnum)Enum.Parse(typeof(RoleEnum), Personel.Role));
         }
 
