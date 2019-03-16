@@ -75,5 +75,11 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RepairHandlingSystem.Common\RepairHandlingSystem.Common.csproj">
+      <Project>{74256963-E06F-4EE0-9918-7B84EEDC83DF}</Project>
+      <Name>RepairHandlingSystem.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

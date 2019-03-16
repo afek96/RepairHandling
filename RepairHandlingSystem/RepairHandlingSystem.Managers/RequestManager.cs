@@ -27,7 +27,14 @@ namespace RepairHandlingSystem.Managers
 
         public void EditRequest(Request request)
         {
-            throw new NotImplementedException();
+            using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
+            {
+                var dbRequest = dc.Requests.SingleOrDefault(r => r.IdRequest == request.IdRequest);
+
+                dbRequest.Edit(request);
+
+                dc.SubmitChanges();
+            }
         }
 
         public IQueryable<Request> GetRequests(Request searchCriteria)
@@ -59,7 +66,14 @@ namespace RepairHandlingSystem.Managers
 
         public void EditActivity(Activity activity)
         {
-            throw new NotImplementedException();
+            using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
+            {
+                var dbActivity = dc.Activities.SingleOrDefault(a => a.IdActivity == activity.IdActivity);
+
+                dbActivity.Edit(activity);
+
+                dc.SubmitChanges();
+            }
         }
 
         public IQueryable<Activity> GetActivities(Activity searchCriteria)
@@ -70,7 +84,7 @@ namespace RepairHandlingSystem.Managers
 
             return dc.Activities.Where(a =>
                 (searchCriteria.IdActivity == 0 || a.IdActivity == searchCriteria.IdActivity) &&
-                (searchCriteria.IdRequest == 0 || searchCriteria.IdRequest == null || a.IdRequest == searchCriteria.IdRequest) &&
+                (searchCriteria.IdRequest == 0 || a.IdRequest == searchCriteria.IdRequest) &&
                 (searchCriteria.IdPersonel == null || a.IdPersonel == searchCriteria.IdPersonel) &&
                 (string.IsNullOrEmpty(searchCriteria.Description) || a.Description.Contains(searchCriteria.Description)) &&
                 (string.IsNullOrEmpty(searchCriteria.Result) || a.Result.Contains(searchCriteria.Result)) &&
@@ -95,7 +109,7 @@ namespace RepairHandlingSystem.Managers
 
             return dc.Clients.Where(c =>
                 (searchCriteria.IdClient == 0 || c.IdClient == searchCriteria.IdClient) &&
-                (searchCriteria.IdAddress == 0 || c.IdAddress == searchCriteria.IdAddress) &&
+                (searchCriteria.IdAddress == null || c.IdAddress == searchCriteria.IdAddress) &&
                 (string.IsNullOrEmpty(searchCriteria.Name) || c.Name.StartsWith(searchCriteria.Name)) &&
                 (string.IsNullOrEmpty(searchCriteria.FirstName) || c.FirstName.StartsWith(searchCriteria.FirstName)) &&
                 (string.IsNullOrEmpty(searchCriteria.LastName) || c.LastName.StartsWith(searchCriteria.LastName)) &&

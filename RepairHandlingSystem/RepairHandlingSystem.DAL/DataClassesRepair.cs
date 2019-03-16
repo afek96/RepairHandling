@@ -1,3 +1,4 @@
+using RepairHandlingSystem.Common;
 using System;
 
 namespace RepairHandlingSystem.DAL
@@ -81,6 +82,16 @@ namespace RepairHandlingSystem.DAL
 
         public DateTime? EndDateTo { get; set; }
 
+        public void Edit(Request request)
+        {
+            Description = request.Description;
+            Result = request.Result;
+            Status = request.Status;
+            IdObject = request.IdObject;
+            if ((Status == StatusEnum.FIN.ToString() || Status == StatusEnum.CAN.ToString()) && EndDate == null)
+                EndDate = DateTime.Now;
+        }
+
         public override string ToString()
         {
             return Object.ToString();
@@ -100,6 +111,20 @@ namespace RepairHandlingSystem.DAL
         public override string ToString()
         {
             return $"{Request} - {Type}";
+        }
+
+        public void Edit(Activity activity)
+        {
+            SequenceNo = activity.SequenceNo;
+            Description = activity.Description;
+            Result = activity.Result;
+            Status = activity.Status;
+            
+            if ((Status == StatusEnum.FIN.ToString() || Status == StatusEnum.CAN.ToString()) && EndDate == null)
+                EndDate = DateTime.Now;
+
+            Type = activity.Type;
+            IdPersonel = activity.IdPersonel;
         }
     }
 }
