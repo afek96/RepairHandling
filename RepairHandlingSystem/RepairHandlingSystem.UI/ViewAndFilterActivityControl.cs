@@ -92,7 +92,7 @@ namespace RepairHandlingSystem.UI
 
         private void dgvActivities_SelectionChanged(object sender, EventArgs e)
         {
-            btnActivityEdit.Enabled = dgvActivities?.CurrentRow?.DataBoundItem != null;
+            btnActivityEdit.Enabled = btnActivityShow.Enabled = dgvActivities?.CurrentRow?.DataBoundItem != null;
         }
 
         private void cbxActivityType_Click(object sender, EventArgs e)
@@ -112,6 +112,50 @@ namespace RepairHandlingSystem.UI
             var workers = _personelManager.GetPersonel(searchCriteria);
             cbxWorker.DataSource = workers;
             cbxWorker.DisplayMember = "DisplayName";
+        }
+
+        private void btnActivityAdd_Click(object sender, EventArgs e)
+        {
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Create, false, CurrentRequest);
+            activityRequestForm.OnActivityTypesNeeded += ActivityRequestForm_OnActivityTypesNeeded;
+            activityRequestForm.OnWorkersNeeded += ActivityRequestForm_OnWorkersNeeded;
+
+            if (activityRequestForm.ShowDialog() != DialogResult.OK)
+                return;
+
+            _requestManager.AddActivity(activityRequestForm.Activity);
+        }
+
+        private void btnActivityEdit_Click(object sender, EventArgs e)
+        {
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Edit, false, CurrentRequest);
+            activityRequestForm.Activity = (Activity)dgvActivities.CurrentRow.DataBoundItem;
+            activityRequestForm.OnActivityTypesNeeded += ActivityRequestForm_OnActivityTypesNeeded;
+            activityRequestForm.OnWorkersNeeded += ActivityRequestForm_OnWorkersNeeded;
+
+            if (activityRequestForm.ShowDialog() != DialogResult.OK)
+                return;
+
+            _requestManager.EditActivity(activityRequestForm.Activity);
+        }
+
+        private IQueryable<Personel> ActivityRequestForm_OnWorkersNeeded()
+        {
+            return _personelManager.GetPersonel(new Personel() { Role = RoleEnum.WOR.ToString() });
+        }
+
+        private IQueryable<ActivityType> ActivityRequestForm_OnActivityTypesNeeded()
+        {
+            return _requestManager.GetActivityTypes(null);
+        }
+
+        private void btnActivityShow_Click(object sender, EventArgs e)
+        {
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.View, false, CurrentRequest);
+
+            activityRequestForm.Activity = (Activity)dgvActivities.CurrentRow.DataBoundItem;
+
+            activityRequestForm.ShowDialog();
         }
     }
 }

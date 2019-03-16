@@ -19,9 +19,15 @@ namespace RepairHandlingSystem.Managers
         {
             using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
             {
+                request.CreateDate = DateTime.Now;
                 dc.Requests.InsertOnSubmit(request);
                 dc.SubmitChanges();
             }
+        }
+
+        public void EditRequest(Request request)
+        {
+            throw new NotImplementedException();
         }
 
         public IQueryable<Request> GetRequests(Request searchCriteria)
@@ -39,6 +45,37 @@ namespace RepairHandlingSystem.Managers
                 (string.IsNullOrEmpty(searchCriteria.Status) || r.Status.Equals(searchCriteria.Status)) &&
                 (!searchCriteria.CreateDateFrom.HasValue || (r.CreateDate > searchCriteria.CreateDateFrom && r.CreateDate < searchCriteria.CreateDateTo)) &&
                 (!searchCriteria.EndDateFrom.HasValue || (r.EndDate.HasValue && r.EndDate > searchCriteria.EndDateFrom && r.EndDate < searchCriteria.EndDateTo)));
+        }
+
+        public void AddActivity(Activity activity)
+        {
+            using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
+            {
+                activity.CreateDate = DateTime.Now;
+                dc.Activities.InsertOnSubmit(activity);
+                dc.SubmitChanges();
+            }
+        }
+
+        public void EditActivity(Activity activity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<Activity> GetActivities(Activity searchCriteria)
+        {
+            DataClassesRepairDataContext dc = new DataClassesRepairDataContext();
+            if (searchCriteria == null)
+                return dc.Activities;
+
+            return dc.Activities.Where(a =>
+                (searchCriteria.IdActivity == 0 || a.IdActivity == searchCriteria.IdActivity) &&
+                (searchCriteria.IdRequest == 0 || a.IdRequest == searchCriteria.IdRequest) &&
+                (searchCriteria.IdPersonel == 0 || a.IdPersonel == searchCriteria.IdPersonel) &&
+                (string.IsNullOrEmpty(searchCriteria.Description) || a.Description.Contains(searchCriteria.Description)) &&
+                (string.IsNullOrEmpty(searchCriteria.Result) || a.Result.Contains(searchCriteria.Result)) &&
+                (string.IsNullOrEmpty(searchCriteria.Status) || a.Status.Equals(searchCriteria.Status)) &&
+                (string.IsNullOrEmpty(searchCriteria.Type) || a.Type.StartsWith(searchCriteria.Type)));
         }
 
         public void AddClient(Client client)
@@ -121,31 +158,6 @@ namespace RepairHandlingSystem.Managers
                 (searchCriteria.IdClient == 0 || o.IdClient == searchCriteria.IdClient) &&
                 (string.IsNullOrEmpty(searchCriteria.Name) || o.Name.StartsWith(searchCriteria.Name)) &&
                 (string.IsNullOrEmpty(searchCriteria.Type) || o.Type.StartsWith(searchCriteria.Type)));
-        }
-
-        public void AddActivity(Activity activity)
-        {
-            using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
-            {
-                dc.Activities.InsertOnSubmit(activity);
-                dc.SubmitChanges();
-            }
-        }
-
-        public IQueryable<Activity> GetActivities(Activity searchCriteria)
-        {
-            DataClassesRepairDataContext dc = new DataClassesRepairDataContext();
-            if (searchCriteria == null)
-                return dc.Activities;
-
-            return dc.Activities.Where(a =>
-                (searchCriteria.IdActivity == 0 || a.IdActivity == searchCriteria.IdActivity) &&
-                (searchCriteria.IdRequest == 0 || a.IdRequest == searchCriteria.IdRequest) &&
-                (searchCriteria.IdPersonel == 0 || a.IdPersonel == searchCriteria.IdPersonel) &&
-                (string.IsNullOrEmpty(searchCriteria.Description) || a.Description.Contains(searchCriteria.Description)) &&
-                (string.IsNullOrEmpty(searchCriteria.Result) || a.Result.Contains(searchCriteria.Result)) &&
-                (string.IsNullOrEmpty(searchCriteria.Status) || a.Status.Equals(searchCriteria.Status)) &&
-                (string.IsNullOrEmpty(searchCriteria.Type) || a.Type.StartsWith(searchCriteria.Type)));
         }
 
         public IQueryable<ActivityType> GetActivityTypes(ActivityType searchCriteria)

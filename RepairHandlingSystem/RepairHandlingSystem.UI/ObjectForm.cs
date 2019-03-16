@@ -1,45 +1,31 @@
-﻿using System;
+﻿using RepairHandlingSystem.Common;
+using RepairHandlingSystem.DAL;
+using RepairHandlingSystem.Managers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using RepairHandlingSystem.Managers;
-using RepairHandlingSystem.DAL;
-using RepairHandlingSystem.Common;
 
 namespace RepairHandlingSystem.UI
 {
-    public partial class RequestControl : UserControl
+    public partial class ObjectForm : Form
     {
         private RequestManager _requestManager;
 
-        public Personel CurrentUser { get; set; }
-
-        public RequestControl()
+        public ObjectForm()
         {
             InitializeComponent();
         }
 
-        public RequestControl(Personel currentUser)
+        public ObjectForm(RequestManager requestManager)
         {
             InitializeComponent();
-            CurrentUser = currentUser;
-        }
-
-        public void Initialize(RequestManager requestManager)
-        {
             _requestManager = requestManager;
-        }
-
-        private void cbxObject_Click(object sender, EventArgs e)
-        {
-            var objects = _requestManager.GetObjects(null);
-            cbxObject.DataSource = objects;
-            cbxObject.DisplayMember = "DisplayName";
         }
 
         private void cbxClient_Click(object sender, EventArgs e)
@@ -56,14 +42,6 @@ namespace RepairHandlingSystem.UI
             cbxObjectType.DisplayMember = "ObjType";
         }
 
-        private void RequestControl_FontChanged(object sender, EventArgs e)
-        {
-            foreach (Control control in tlpMain.Controls)
-            {
-                control.Font = Font;
-            }
-        }
-
         private void btnAddObject_Click(object sender, EventArgs e)
         {
             _requestManager.AddObject((Client)cbxClient.SelectedItem, (ObjectType)cbxObjectType.SelectedItem, txbDescription.Text);
@@ -73,7 +51,7 @@ namespace RepairHandlingSystem.UI
         {
             UserForm userForm = new UserForm(FormModeEnum.Create, false);
 
-            if(userForm.ShowDialog() != DialogResult.OK)
+            if (userForm.ShowDialog() != DialogResult.OK)
                 return;
 
             _requestManager.AddClient(userForm.Client);
@@ -92,22 +70,6 @@ namespace RepairHandlingSystem.UI
         private void OnUserValueInputChanged(object sender, EventArgs e)
         {
             btnAddObject.Enabled = cbxClient.SelectedIndex != -1 && cbxObjectType.SelectedIndex != -1 && txbDescription.Text.Length < 256;
-
-            btnAddRequest.Enabled = cbxObject.SelectedIndex != -1 && !string.IsNullOrEmpty(txbDescription.Text);
-        }
-
-        private void btnAddRequest_Click(object sender, EventArgs e)
-        {
-            Request request = new Request()
-            {
-                CreateDate = DateTime.Now,
-                Description = txbDescription.Text,
-                IdPersonel = CurrentUser.IdPersonel,
-                IdObject = ((DAL.Object)cbxObject.SelectedItem).IdObject,
-                Status = StatusEnum.OPN.ToString()
-            };
-
-            _requestManager.AddRequest(request);
         }
     }
 }

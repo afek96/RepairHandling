@@ -44,6 +44,8 @@
             this.btnFilterClear = new System.Windows.Forms.Button();
             this.btnRequestEdit = new System.Windows.Forms.Button();
             this.btnRequestShow = new System.Windows.Forms.Button();
+            this.btnObjectAdd = new System.Windows.Forms.Button();
+            this.btnRequestAdd = new System.Windows.Forms.Button();
             this.tlpMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).BeginInit();
             this.SuspendLayout();
@@ -73,39 +75,39 @@
             this.tlpMain.Controls.Add(this.dtrpCreateDate, 1, 7);
             this.tlpMain.Controls.Add(this.dtrpEndDate, 5, 7);
             this.tlpMain.Controls.Add(this.btnFilterSearch, 1, 9);
-            this.tlpMain.Controls.Add(this.btnFilterClear, 3, 9);
-            this.tlpMain.Controls.Add(this.btnRequestEdit, 5, 9);
-            this.tlpMain.Controls.Add(this.btnRequestShow, 7, 9);
+            this.tlpMain.Controls.Add(this.btnFilterClear, 5, 9);
+            this.tlpMain.Controls.Add(this.btnRequestEdit, 5, 11);
+            this.tlpMain.Controls.Add(this.btnRequestShow, 7, 11);
+            this.tlpMain.Controls.Add(this.btnObjectAdd, 1, 11);
+            this.tlpMain.Controls.Add(this.btnRequestAdd, 3, 11);
             this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpMain.Location = new System.Drawing.Point(0, 0);
             this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 12;
+            this.tlpMain.RowCount = 14;
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.34782F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.998F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.695651F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.999681F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.695651F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.999681F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.56522F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.99928F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.695651F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.999681F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.003681F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.Size = new System.Drawing.Size(575, 390);
+            this.tlpMain.Size = new System.Drawing.Size(575, 452);
             this.tlpMain.TabIndex = 0;
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblDescription.Location = new System.Drawing.Point(13, 237);
+            this.lblDescription.Location = new System.Drawing.Point(13, 250);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(125, 28);
+            this.lblDescription.Size = new System.Drawing.Size(125, 30);
             this.lblDescription.TabIndex = 24;
             this.lblDescription.Text = "Description:";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -113,7 +115,7 @@
             // txbResult
             // 
             this.txbResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txbResult.Location = new System.Drawing.Point(436, 240);
+            this.txbResult.Location = new System.Drawing.Point(436, 253);
             this.txbResult.MaxLength = 1024;
             this.txbResult.Name = "txbResult";
             this.txbResult.Size = new System.Drawing.Size(125, 20);
@@ -131,7 +133,7 @@
             this.dgvRequests.MultiSelect = false;
             this.dgvRequests.Name = "dgvRequests";
             this.dgvRequests.ReadOnly = true;
-            this.dgvRequests.Size = new System.Drawing.Size(548, 173);
+            this.dgvRequests.Size = new System.Drawing.Size(548, 184);
             this.dgvRequests.TabIndex = 18;
             this.dgvRequests.SelectionChanged += new System.EventHandler(this.dgvRequests_SelectionChanged);
             // 
@@ -139,7 +141,7 @@
             // 
             this.cbxObject.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxObject.FormattingEnabled = true;
-            this.cbxObject.Location = new System.Drawing.Point(154, 202);
+            this.cbxObject.Location = new System.Drawing.Point(154, 213);
             this.cbxObject.Name = "cbxObject";
             this.cbxObject.Size = new System.Drawing.Size(125, 21);
             this.cbxObject.TabIndex = 19;
@@ -148,7 +150,7 @@
             // txbDescription
             // 
             this.txbDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txbDescription.Location = new System.Drawing.Point(154, 240);
+            this.txbDescription.Location = new System.Drawing.Point(154, 253);
             this.txbDescription.MaxLength = 1024;
             this.txbDescription.Name = "txbDescription";
             this.txbDescription.Size = new System.Drawing.Size(125, 20);
@@ -158,7 +160,7 @@
             // 
             this.cbxStatus.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cbxStatus.FormattingEnabled = true;
-            this.cbxStatus.Location = new System.Drawing.Point(436, 202);
+            this.cbxStatus.Location = new System.Drawing.Point(436, 213);
             this.cbxStatus.Name = "cbxStatus";
             this.cbxStatus.Size = new System.Drawing.Size(125, 21);
             this.cbxStatus.TabIndex = 22;
@@ -167,9 +169,9 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblStatus.Location = new System.Drawing.Point(295, 199);
+            this.lblStatus.Location = new System.Drawing.Point(295, 210);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(125, 28);
+            this.lblStatus.Size = new System.Drawing.Size(125, 30);
             this.lblStatus.TabIndex = 26;
             this.lblStatus.Text = "Status:";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,9 +180,9 @@
             // 
             this.lblObject.AutoSize = true;
             this.lblObject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblObject.Location = new System.Drawing.Point(13, 199);
+            this.lblObject.Location = new System.Drawing.Point(13, 210);
             this.lblObject.Name = "lblObject";
-            this.lblObject.Size = new System.Drawing.Size(125, 28);
+            this.lblObject.Size = new System.Drawing.Size(125, 30);
             this.lblObject.TabIndex = 23;
             this.lblObject.Text = "Object:";
             this.lblObject.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -189,9 +191,9 @@
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblResult.Location = new System.Drawing.Point(295, 237);
+            this.lblResult.Location = new System.Drawing.Point(295, 250);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(125, 28);
+            this.lblResult.Size = new System.Drawing.Size(125, 30);
             this.lblResult.TabIndex = 25;
             this.lblResult.Text = "Result:";
             this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -200,26 +202,27 @@
             // 
             this.tlpMain.SetColumnSpan(this.dtrpCreateDate, 3);
             this.dtrpCreateDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtrpCreateDate.Location = new System.Drawing.Point(13, 278);
+            this.dtrpCreateDate.Location = new System.Drawing.Point(13, 293);
             this.dtrpCreateDate.Name = "dtrpCreateDate";
-            this.dtrpCreateDate.Size = new System.Drawing.Size(266, 58);
+            this.dtrpCreateDate.Size = new System.Drawing.Size(266, 62);
             this.dtrpCreateDate.TabIndex = 27;
             // 
             // dtrpEndDate
             // 
             this.tlpMain.SetColumnSpan(this.dtrpEndDate, 3);
             this.dtrpEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtrpEndDate.Location = new System.Drawing.Point(295, 278);
+            this.dtrpEndDate.Location = new System.Drawing.Point(295, 293);
             this.dtrpEndDate.Name = "dtrpEndDate";
-            this.dtrpEndDate.Size = new System.Drawing.Size(266, 58);
+            this.dtrpEndDate.Size = new System.Drawing.Size(266, 62);
             this.dtrpEndDate.TabIndex = 28;
             // 
             // btnFilterSearch
             // 
+            this.tlpMain.SetColumnSpan(this.btnFilterSearch, 3);
             this.btnFilterSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFilterSearch.Location = new System.Drawing.Point(13, 352);
+            this.btnFilterSearch.Location = new System.Drawing.Point(13, 371);
             this.btnFilterSearch.Name = "btnFilterSearch";
-            this.btnFilterSearch.Size = new System.Drawing.Size(125, 22);
+            this.btnFilterSearch.Size = new System.Drawing.Size(266, 24);
             this.btnFilterSearch.TabIndex = 29;
             this.btnFilterSearch.Text = "Search";
             this.btnFilterSearch.UseVisualStyleBackColor = true;
@@ -227,10 +230,11 @@
             // 
             // btnFilterClear
             // 
+            this.tlpMain.SetColumnSpan(this.btnFilterClear, 3);
             this.btnFilterClear.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFilterClear.Location = new System.Drawing.Point(154, 352);
+            this.btnFilterClear.Location = new System.Drawing.Point(295, 371);
             this.btnFilterClear.Name = "btnFilterClear";
-            this.btnFilterClear.Size = new System.Drawing.Size(125, 22);
+            this.btnFilterClear.Size = new System.Drawing.Size(266, 24);
             this.btnFilterClear.TabIndex = 30;
             this.btnFilterClear.Text = "Clear";
             this.btnFilterClear.UseVisualStyleBackColor = true;
@@ -240,11 +244,11 @@
             // 
             this.btnRequestEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRequestEdit.Enabled = false;
-            this.btnRequestEdit.Location = new System.Drawing.Point(295, 352);
+            this.btnRequestEdit.Location = new System.Drawing.Point(295, 411);
             this.btnRequestEdit.Name = "btnRequestEdit";
-            this.btnRequestEdit.Size = new System.Drawing.Size(125, 22);
+            this.btnRequestEdit.Size = new System.Drawing.Size(125, 24);
             this.btnRequestEdit.TabIndex = 31;
-            this.btnRequestEdit.Text = "Edit";
+            this.btnRequestEdit.Text = "Edit Request";
             this.btnRequestEdit.UseVisualStyleBackColor = true;
             this.btnRequestEdit.Click += new System.EventHandler(this.btnRequestEdit_Click);
             // 
@@ -252,13 +256,35 @@
             // 
             this.btnRequestShow.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnRequestShow.Enabled = false;
-            this.btnRequestShow.Location = new System.Drawing.Point(436, 352);
+            this.btnRequestShow.Location = new System.Drawing.Point(436, 411);
             this.btnRequestShow.Name = "btnRequestShow";
-            this.btnRequestShow.Size = new System.Drawing.Size(125, 22);
+            this.btnRequestShow.Size = new System.Drawing.Size(125, 24);
             this.btnRequestShow.TabIndex = 32;
-            this.btnRequestShow.Text = "Show";
+            this.btnRequestShow.Text = "Show Request";
             this.btnRequestShow.UseVisualStyleBackColor = true;
             this.btnRequestShow.Click += new System.EventHandler(this.btnRequestShow_Click);
+            // 
+            // btnObjectAdd
+            // 
+            this.btnObjectAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnObjectAdd.Location = new System.Drawing.Point(13, 411);
+            this.btnObjectAdd.Name = "btnObjectAdd";
+            this.btnObjectAdd.Size = new System.Drawing.Size(125, 24);
+            this.btnObjectAdd.TabIndex = 33;
+            this.btnObjectAdd.Text = "Add Object";
+            this.btnObjectAdd.UseVisualStyleBackColor = true;
+            this.btnObjectAdd.Click += new System.EventHandler(this.btnObjectAdd_Click);
+            // 
+            // btnRequestAdd
+            // 
+            this.btnRequestAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRequestAdd.Location = new System.Drawing.Point(154, 411);
+            this.btnRequestAdd.Name = "btnRequestAdd";
+            this.btnRequestAdd.Size = new System.Drawing.Size(125, 24);
+            this.btnRequestAdd.TabIndex = 34;
+            this.btnRequestAdd.Text = "Add Request";
+            this.btnRequestAdd.UseVisualStyleBackColor = true;
+            this.btnRequestAdd.Click += new System.EventHandler(this.btnRequestAdd_Click);
             // 
             // ViewAndFilterRequestControl
             // 
@@ -266,7 +292,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpMain);
             this.Name = "ViewAndFilterRequestControl";
-            this.Size = new System.Drawing.Size(575, 390);
+            this.Size = new System.Drawing.Size(575, 452);
             this.tlpMain.ResumeLayout(false);
             this.tlpMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequests)).EndInit();
@@ -292,5 +318,7 @@
         private System.Windows.Forms.Button btnFilterClear;
         private System.Windows.Forms.Button btnRequestEdit;
         private System.Windows.Forms.Button btnRequestShow;
+        private System.Windows.Forms.Button btnObjectAdd;
+        private System.Windows.Forms.Button btnRequestAdd;
     }
 }

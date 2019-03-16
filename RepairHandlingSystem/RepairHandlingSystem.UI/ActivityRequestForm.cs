@@ -21,10 +21,59 @@ namespace RepairHandlingSystem.UI
 
         private int[] _rowsUnnecessaryForActivity = new int[] { 2, 1 };
         private int[] _rowsUnnecessaryForRequest = new int[] { 9, 8, 5, 4, 3, 2 };
-        private int[] _rowsUnnecessaryForCreate = new int[] { 19, 18, 17, 16, 13, 12, 11, 10 };
+        private int[] _rowsUnnecessaryForCreate = new int[] { 17, 16, 13, 12, 11, 10 };
         private int[] _rowsUnnecessaryForEdit = new int[] { 13, 12, 11, 10 };
 
         private int _rowsRemoved = 0;
+
+        private Request _currentRequestForActivity = null;
+        private Personel _currentUser;
+
+        #endregion
+
+        #region Events
+
+        public event Func<IQueryable<DAL.Object>> OnObjectsNeeded;
+
+        private IQueryable<DAL.Object> CallOnObjectsNeeded()
+        {
+            try
+            {
+                return OnObjectsNeeded?.Invoke();
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        public event Func<IQueryable<Personel>> OnWorkersNeeded;
+
+        private IQueryable<Personel> CallOnWorkersNeeded()
+        {
+            try
+            {
+                return OnWorkersNeeded?.Invoke();
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
+
+        public event Func<IQueryable<ActivityType>> OnActivityTypesNeeded;
+
+        private IQueryable<ActivityType> CallOnActivityTypesNeeded()
+        {
+            try
+            {
+                return OnActivityTypesNeeded?.Invoke();
+            }
+            catch (Exception)
+            {
+            }
+            return null;
+        }
 
         #endregion
 
@@ -65,10 +114,12 @@ namespace RepairHandlingSystem.UI
             InitializeComponent();
         }
 
-        public ActivityRequestForm(FormModeEnum mode, bool forRequest)
+        public ActivityRequestForm(FormModeEnum mode, bool forRequest, Request currentRequestForActivity = null, Personel currentUser = null)
         {
             _mode = mode;
             _forRequest = forRequest;
+            _currentRequestForActivity = currentRequestForActivity;
+            _currentUser = currentUser;
             InitializeComponent();
 
             if (_forRequest)
@@ -91,9 +142,22 @@ namespace RepairHandlingSystem.UI
             }
 
             InitTableLayoutPanel();
+
+            if(currentRequestForActivity != null)
+                txbRequest.Text = currentRequestForActivity.ToString();
+
+            if (currentUser != null)
+            {
+                cbxPersonel.Text = currentUser.ToString();
+                cbxPersonel.Enabled = false;
+            }
         }
 
-        private void InitCreateMode() {}
+        private void InitCreateMode()
+        {
+            cbxStatus.SelectedIndex = cbxStatus.Items.IndexOf(StatusEnum.OPN);
+            cbxStatus.Enabled = false;
+        }
 
         private void InitEditMode()
         {
@@ -142,6 +206,62 @@ namespace RepairHandlingSystem.UI
 
         #endregion
 
+        #region Event Handling
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            if (_mode == FormModeEnum.View)
+                return;
+
+            if (_forRequest)
+            {
+                Request.IdObject = ((DAL.Object)cbxObject.SelectedItem).IdObject;
+                Request.IdPersonel = _currentUser.IdPersonel;
+                Request.Description = txbDescription.Text;
+                Request.Result = txbResult.Text;
+                Request.Status = cbxStatus.SelectedText;
+            }
+            else
+            {
+                Activity.IdRequest = _currentRequestForActivity.IdRequest;
+                Activity.SequenceNo = (int)nudSequenceNo.Value;
+                Activity.IdPersonel = (cbxPersonel.SelectedItem as Personel)?.IdPersonel;
+                Activity.Type = cbxActivityType.SelectedText;
+                Activity.Description = txbDescription.Text;
+                Activity.Result = txbResult.Text;
+                Activity.Status = cbxStatus.SelectedText;
+            }
+        }
+
+        private void cbxObject_Click(object sender, EventArgs e)
+        {
+            if (!cbxObject.Enabled || cbxObject.DataSource != null)
+                return;
+
+            cbxObject.DataSource = CallOnObjectsNeeded();
+            cbxObject.DisplayMember = "DisplayName";
+        }
+
+        private void cbxPersonel_Click(object sender, EventArgs e)
+        {
+            if (!cbxPersonel.Enabled || cbxPersonel.DataSource != null)
+                return;
+
+            cbxPersonel.DataSource = CallOnWorkersNeeded();
+            cbxPersonel.DisplayMember = "DisplayName";
+        }
+
+        private void cbxActivityType_Click(object sender, EventArgs e)
+        {
+            if (!cbxActivityType.Enabled || cbxActivityType.DataSource != null)
+                return;
+
+            cbxActivityType.DataSource = CallOnActivityTypesNeeded();
+            cbxPersonel.DisplayMember = "ActType";
+        }
+
+        #endregion
+
         #region Private Methods
 
         private void FillActivityData()
@@ -160,7 +280,8 @@ namespace RepairHandlingSystem.UI
         private void FillRequestData()
         {
             cbxObject.SelectedIndex = cbxObject.Items.IndexOf(Request.Object);
-            cbxPersonel.SelectedIndex = cbxPersonel.Items.IndexOf(Request.Personel);
+            // ogranicznie tylko do tego użytkownika który stworzył zgłoszenie (dane wypełniane przez konstruktor)
+            //cbxPersonel.SelectedIndex = cbxPersonel.Items.IndexOf(Request.Personel);
             txbStartDate.Text = Request.CreateDate.ToString("dd/MM/yyyy HH:mm");
             txbEndDate.Text = Request.EndDate?.ToString("dd/MM/yyyy HH:mm");
             txbDescription.Text = Request.Description;
@@ -182,7 +303,7 @@ namespace RepairHandlingSystem.UI
 
             _rowsRemoved += rowArray.Length;
         }
-
+        
         #endregion
     }
 }

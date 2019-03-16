@@ -85,17 +85,17 @@
     <Compile Include="ManagerControl.Designer.cs">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ObjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ObjectForm.Designer.cs">
+      <DependentUpon>ObjectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ObjectTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ObjectTypeForm.Designer.cs">
       <DependentUpon>ObjectTypeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="RequestControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RequestControl.Designer.cs">
-      <DependentUpon>RequestControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
@@ -145,11 +145,11 @@
     <EmbeddedResource Include="ManagerControl.resx">
       <DependentUpon>ManagerControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ObjectForm.resx">
+      <DependentUpon>ObjectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ObjectTypeForm.resx">
       <DependentUpon>ObjectTypeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RequestControl.resx">
-      <DependentUpon>RequestControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>

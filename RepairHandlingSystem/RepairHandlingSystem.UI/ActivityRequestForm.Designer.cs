@@ -115,9 +115,11 @@
             this.btnAccept.TabIndex = 11;
             this.btnAccept.Text = "Add";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Pink;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -126,7 +128,7 @@
             this.btnCancel.Size = new System.Drawing.Size(213, 38);
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
             // 
             // txbRequest
             // 
@@ -293,6 +295,7 @@
             this.cbxObject.Name = "cbxObject";
             this.cbxObject.Size = new System.Drawing.Size(213, 33);
             this.cbxObject.TabIndex = 19;
+            this.cbxObject.Click += new System.EventHandler(this.cbxObject_Click);
             // 
             // nudSequenceNo
             // 
@@ -312,6 +315,7 @@
             this.cbxPersonel.Name = "cbxPersonel";
             this.cbxPersonel.Size = new System.Drawing.Size(213, 33);
             this.cbxPersonel.TabIndex = 21;
+            this.cbxPersonel.Click += new System.EventHandler(this.cbxPersonel_Click);
             // 
             // cbxActivityType
             // 
@@ -322,6 +326,7 @@
             this.cbxActivityType.Name = "cbxActivityType";
             this.cbxActivityType.Size = new System.Drawing.Size(213, 33);
             this.cbxActivityType.TabIndex = 22;
+            this.cbxActivityType.Click += new System.EventHandler(this.cbxActivityType_Click);
             // 
             // txbDescription
             // 
@@ -365,8 +370,10 @@
             // 
             // ActivityRequestForm
             // 
+            this.AcceptButton = this.btnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(468, 605);
             this.ControlBox = false;
             this.Controls.Add(this.tlpMain);

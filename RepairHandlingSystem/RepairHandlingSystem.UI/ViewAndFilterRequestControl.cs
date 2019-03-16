@@ -27,7 +27,7 @@ namespace RepairHandlingSystem.UI
             {
                 OnRequestSelected?.Invoke(selectedRequest);
             }
-            catch (Exception ex) {}
+            catch (Exception) {}
         }
 
         public ViewAndFilterRequestControl()
@@ -99,14 +99,50 @@ namespace RepairHandlingSystem.UI
             cbxObject.DisplayMember = "DisplayName";
         }
 
+        private void btnObjectAdd_Click(object sender, EventArgs e)
+        {
+            ObjectForm objectForm = new ObjectForm(_requestManager);
+            objectForm.ShowDialog();
+        }
+
+        private void btnRequestAdd_Click(object sender, EventArgs e)
+        {
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Create, true, currentUser: CurrentUser);
+
+            activityRequestForm.OnObjectsNeeded += ActivityRequestForm_OnObjectsNeeded;
+
+            if (activityRequestForm.ShowDialog() != DialogResult.OK)
+                return;
+
+            _requestManager.AddRequest(activityRequestForm.Request);
+        }
+
         private void btnRequestEdit_Click(object sender, EventArgs e)
         {
-            //TODO
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.Edit, true, currentUser: CurrentUser);
+
+            activityRequestForm.Request = (Request)dgvRequests.CurrentRow.DataBoundItem;
+
+            activityRequestForm.OnObjectsNeeded += ActivityRequestForm_OnObjectsNeeded;
+
+            if (activityRequestForm.ShowDialog() != DialogResult.OK)
+                return;
+
+            _requestManager.EditRequest(activityRequestForm.Request);
         }
 
         private void btnRequestShow_Click(object sender, EventArgs e)
         {
+            ActivityRequestForm activityRequestForm = new ActivityRequestForm(FormModeEnum.View, true, currentUser: CurrentUser);
 
+            activityRequestForm.Request = (Request)dgvRequests.CurrentRow.DataBoundItem;
+
+            activityRequestForm.ShowDialog();
+        }
+
+        private IQueryable<DAL.Object> ActivityRequestForm_OnObjectsNeeded()
+        {
+            return _requestManager.GetObjects(null);
         }
     }
 }

@@ -113,9 +113,6 @@ namespace RepairHandlingSystem.UI
 
             userForm.Personel = (Personel)dgvUsers.CurrentRow.DataBoundItem;
 
-            if (userForm.ShowDialog() != DialogResult.OK)
-                return;
-
             userForm.ShowDialog();
         }
 

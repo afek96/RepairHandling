@@ -24,7 +24,6 @@ namespace RepairHandlingSystem.UI
         public void Initialize(RequestManager requestManager, PersonelManager personelManager)
         {
             _requestManager = requestManager;
-            requestControl.Initialize(requestManager);
             vafRequestControl.OnRequestSelected += VafRequestControl_OnRequestSelected;
             vafRequestControl.Initialize(requestManager);
             vafActivityControl.Initialize(requestManager, personelManager);
@@ -37,7 +36,6 @@ namespace RepairHandlingSystem.UI
 
         public void SetCurrentUser(Personel currentUser)
         {
-            requestControl.CurrentUser = currentUser;
             vafRequestControl.CurrentUser = currentUser;
         }
     }
