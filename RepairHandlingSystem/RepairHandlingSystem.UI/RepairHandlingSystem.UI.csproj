@@ -55,6 +55,12 @@
     <Compile Include="AdminControl.Designer.cs">
       <DependentUpon>AdminControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="DateTimeRangePickerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DateTimeRangePickerControl.Designer.cs">
+      <DependentUpon>DateTimeRangePickerControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminControl.resx">
       <DependentUpon>AdminControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateTimeRangePickerControl.resx">
+      <DependentUpon>DateTimeRangePickerControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginControl.resx">
       <DependentUpon>LoginControl.cs</DependentUpon>

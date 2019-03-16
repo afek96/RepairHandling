@@ -37,7 +37,7 @@ namespace RepairHandlingSystem.Managers
                 && (string.IsNullOrEmpty(searchCriteria.LastName) || p.LastName.StartsWith(searchCriteria.LastName))
                 && (string.IsNullOrEmpty(searchCriteria.UserName) || p.UserName.StartsWith(searchCriteria.UserName))
                 && (string.IsNullOrEmpty(searchCriteria.Role) || p.Role.StartsWith(searchCriteria.Role))
-                && (!searchCriteria.ExpiryDate.HasValue || !p.ExpiryDate.HasValue || p.ExpiryDate > searchCriteria.ExpiryDate));
+                && (!searchCriteria.ExpiryDateFrom.HasValue || (p.ExpiryDate.HasValue && p.ExpiryDate > searchCriteria.ExpiryDateFrom && p.ExpiryDate < searchCriteria.ExpiryDateTo)));
         }
 
         public void AddPersonel(Personel personel)

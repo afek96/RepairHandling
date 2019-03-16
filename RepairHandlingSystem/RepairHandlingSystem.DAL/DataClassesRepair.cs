@@ -1,3 +1,5 @@
+using System;
+
 namespace RepairHandlingSystem.DAL
 {
     partial class DataClassesRepairDataContext
@@ -13,6 +15,10 @@ namespace RepairHandlingSystem.DAL
                 return $"{FirstName} {LastName}";
             }
         }
+
+        public DateTime? ExpiryDateFrom { get; set; }
+
+        public DateTime? ExpiryDateTo { get; set; }
 
         public void Edit(Personel p)
         {

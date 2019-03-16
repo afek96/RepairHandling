@@ -52,7 +52,8 @@ namespace RepairHandlingSystem.UI
                 UserName = cbxUserName.Text,
                 FirstName = cbxFirstName.Text,
                 LastName = cbxLastName.Text,
-                ExpiryDate = dtpExpiaryDate.Value > DateTime.Now.AddYears(1000) ? (DateTime?)null : dtpExpiaryDate.Value,
+                ExpiryDateTo = dtrpExpiryDate.To,
+                ExpiryDateFrom = dtrpExpiryDate.From,
                 Role = cbxRole.Text
             };
 
@@ -74,7 +75,7 @@ namespace RepairHandlingSystem.UI
             cbxFirstName.Text = string.Empty;
             cbxLastName.Text = string.Empty;
             cbxRole.SelectedIndex = -1;
-            dtpExpiaryDate.Value = dtpExpiaryDate.MaxDate;
+            dtrpExpiryDate.Restart();
         }
 
         private void btnUserAdd_Click(object sender, EventArgs e)
