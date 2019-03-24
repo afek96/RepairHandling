@@ -15,6 +15,9 @@ namespace RepairHandlingSystem.UI
 {
     public partial class ObjectForm : Form
     {
+        private bool _clientAdded = false;
+        private bool _objectTypeAdded = false;
+
         private RequestManager _requestManager;
 
         public ObjectForm()
@@ -30,7 +33,7 @@ namespace RepairHandlingSystem.UI
 
         private void cbxClient_Click(object sender, EventArgs e)
         {
-            if (cbxClient.DataSource != null)
+            if (cbxClient.DataSource != null && !_clientAdded)
                 return;
 
             var clients = _requestManager.GetClients(null);
@@ -40,7 +43,7 @@ namespace RepairHandlingSystem.UI
 
         private void cbxObjectType_Click(object sender, EventArgs e)
         {
-            if (cbxObjectType.DataSource != null)
+            if (cbxObjectType.DataSource != null && !_objectTypeAdded)
                 return;
 
             var objectTypes = _requestManager.GetObjectTypes(null);
@@ -59,8 +62,9 @@ namespace RepairHandlingSystem.UI
 
             if (userForm.ShowDialog() != DialogResult.OK)
                 return;
-
+            
             _requestManager.AddClient(userForm.Client);
+            _clientAdded = true;
         }
 
         private void btnAddObjectType_Click(object sender, EventArgs e)
@@ -69,8 +73,9 @@ namespace RepairHandlingSystem.UI
 
             if (objectTypeForm.ShowDialog() != DialogResult.OK)
                 return;
-
+            
             _requestManager.AddObjectType(objectTypeForm.ObjectType);
+            _objectTypeAdded = true;
         }
 
         private void OnUserValueInputChanged(object sender, EventArgs e)

@@ -30,6 +30,7 @@ namespace RepairHandlingSystem.UI
                 cbxWorker.DisplayMember = "DisplayName";
                 cbxWorker.Enabled = false;
                 btnFilterSearch.Enabled = true;
+                dgvActivities.DataSource = null;
             }
         }
 
@@ -73,7 +74,7 @@ namespace RepairHandlingSystem.UI
                 Description = txbDescription.Text,
                 Result = txbResult.Text,
                 Personel = (Personel)cbxWorker.SelectedItem,
-                Status = cbxStatus.SelectedText,
+                Status = cbxStatus.SelectedItem?.ToString(),
                 ActivityType = (ActivityType)cbxActivityType.SelectedItem,
                 Request = CurrentRequest,
                 SequenceNo = (int)nudSequenceNo.Value
@@ -97,7 +98,8 @@ namespace RepairHandlingSystem.UI
 
         private void btnFilterClear_Click(object sender, EventArgs e)
         {
-            cbxWorker.SelectedIndex = -1;
+            if(CurrentWorker == null)
+              cbxWorker.SelectedIndex = -1;
             cbxStatus.SelectedIndex = -1;
             txbDescription.Text = string.Empty;
             txbResult.Text = string.Empty;

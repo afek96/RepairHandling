@@ -233,7 +233,10 @@ namespace RepairHandlingSystem.UI
 
             if (_forRequest)
             {
-                Request.IdObject = ((DAL.Object)cbxObject.SelectedItem).IdObject;
+                if(_mode == FormModeEnum.Create)
+                    Request.IdObject = ((DAL.Object)cbxObject.SelectedItem).IdObject;
+                else
+                    Request.Object = cbxObject.SelectedItem as DAL.Object;
                 Request.IdPersonel = _currentUser.IdPersonel;
                 Request.Description = txbDescription.Text;
                 Request.Result = txbResult.Text;
@@ -243,8 +246,19 @@ namespace RepairHandlingSystem.UI
             {
                 Activity.IdRequest = _currentRequestForActivity?.IdRequest ?? Activity.IdRequest;
                 Activity.SequenceNo = (int)nudSequenceNo.Value;
-                Activity.Personel = cbxPersonel.SelectedItem as Personel;
-                Activity.Type = (cbxActivityType.SelectedItem as ActivityType).ActType;
+
+                if (_mode == FormModeEnum.Create)
+                { 
+                  Activity.IdPersonel = (cbxPersonel.SelectedItem as Personel).IdPersonel;
+                  Activity.Type = (cbxActivityType.SelectedItem as ActivityType).ActType;
+                }
+                else
+                {
+                  Activity.Personel = cbxPersonel.SelectedItem as Personel;
+                  Activity.ActivityType = cbxActivityType.SelectedItem as ActivityType;
+                }
+
+                
                 Activity.Description = txbDescription.Text;
                 Activity.Result = txbResult.Text;
                 Activity.Status = cbxStatus.SelectedItem.ToString();
