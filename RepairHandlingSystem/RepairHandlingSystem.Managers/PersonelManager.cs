@@ -49,6 +49,7 @@ namespace RepairHandlingSystem.Managers
 
         public void AddPersonel(Personel personel)
         {
+            personel.Password = CreatePasswordHash(personel.Password);
             using (DataClassesRepairDataContext dc = new DataClassesRepairDataContext())
             {
                 dc.Personels.InsertOnSubmit(personel);
